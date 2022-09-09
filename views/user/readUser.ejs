@@ -1,0 +1,39 @@
+<%- include("../partials/NavbarDashboard"); -%>
+
+
+  <div class="container-fluid scroll">
+    <div class="row dashboard">
+      <%- include("../partials/sidebarMenu"); -%>
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 transition-fade" id="swup">
+          <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2"><%=rows[0].first_name%></h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+              <a type="button" class="btn btn-outline-danger" href="/newuser">Add Newuser&emsp13;<i class="bi bi-person-plus-fill"></i></a>
+            </div>
+          </div>
+          <table>
+            <thead class="thead">
+              <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+              </tr>
+              </thead>
+                <tbody>
+                  <tr class="tr">
+                    <td><%=rows[0].id%></td>
+                    <td><%=rows[0].first_name%></td>
+                    <td><%=rows[0].last_name%></td>
+                    <td><%=rows[0].email%></td>
+                    <td><%=rows[0].phone%></td>
+                  </tr>
+                </tbody>
+              </table>
+    </div>
+    </main>
+  </div>
+
+  <%- include("../partials/footer"); -%>

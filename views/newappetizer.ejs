@@ -1,0 +1,58 @@
+<%- include("partials/NavbarDashboard"); -%>
+
+
+    <div class="container-fluid scroll">
+        <div class="row dashboard">
+            <%- include("partials/sidebarMenu"); -%>
+                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 transition-fade" id="swup">
+                    <div
+                        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <h1 class="h2">Add A New Crew Member</h1>
+                    </div>
+                    <form class="needs-validation" novalidate="">
+                        <div class="row g-3">
+                          <div class="col-sm-6">
+                            <label for="firstName" class="form-label">Item ID</label>
+                            <input type="number" class="form-control" id="firstName" placeholder="" value="" required=""  autocomplete="off">
+                            <div class="invalid-feedback">
+                              Valid Item is required.
+                            </div>
+                          </div>
+              
+                          <div class="col-sm-6">
+                            <label for="lastName" class="form-label">Item Name</label>
+                            <input type="text" class="form-control" id="lastName" placeholder="" value="" required=""  autocomplete="off">
+                            <div class="invalid-feedback">
+                              Valid Item Name is required.
+                            </div>
+                          </div>
+
+                          <div class="col-sm-6">
+                            <label for="lastName" class="form-label">Brigade Level</label>
+                            <input type="text" class="form-control" id="lastName" placeholder="" value="" required=""  autocomplete="off">
+                            <div class="invalid-feedback">
+                              Valid brigade level is required.
+                            </div>
+                          </div>
+
+                          <div class="col-sm-6">
+                            <div class="col-md-5">
+                                <label for="Availability" class="form-label">Availability</label>
+                                <select class="form-select" id="Availability" required="">
+                                  <option value="">Available</option>
+                                  <option>Unavailable</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                  Please select a valid option.
+                                </div>
+                              </div>
+                          </div>
+                        
+                        </div>
+                        <hr class="my-4">
+                        <button class="w-100 btn btn-danger btn-lg" type="submit">Create a New Entry</button>
+                      </form>
+        </div>
+        </main>
+    </div>
+    <%- include("partials/footer"); -%>
