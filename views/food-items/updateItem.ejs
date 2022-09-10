@@ -9,7 +9,7 @@
             class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h1 class="h2">Modify The Data</h1>
           </div>
-          <form class="needs-validation" action="/newitem/<%=rows[0].item_id%>" method="post">
+          <form class="needs-validation" action="/edititem/<%=rows[0].item_id%>" method="post">
             <div class="row g-3">
               <div class="col-sm-6">
                 <label for="firstName" class="form-label">Item ID:</label>
@@ -49,7 +49,7 @@
 
               <div class="col-sm-6">
                 <label for="number" class="form-label">Item Price:</label>
-                <input type="number" class="form-control" id="lastName" name="itemDescription" required
+                <input type="number" class="form-control" id="lastName" name="itemPrice" required
                   autocomplete="off" value="<%=rows[0].item_price%>">
                 <div class="invalid-feedback">
                   Please enter a valid Amount.

@@ -1,4 +1,4 @@
-const pool = require("../../database/sqlConnection");
+const pool = require("../../config/sqlConnection");
 
 exports.edit = (req, res) => {
   pool.getConnection((err, connection) => {
@@ -24,8 +24,8 @@ exports.onEdit = (req, res) => {
   pool.getConnection((err, connection) => {
     if (err) console.log(err);
     console.log("Connection: ", connection.threadId);
-    connection.query("UPDATE user SET item_id = ?, item_name = ?, item_availability = ?, item_price = ?, item_long_description = ? WHERE id = ?",
-    [itemID, itemName, itemAvailability, itemPrice, itemLDescription], (err, rows) => {
+    connection.query("UPDATE item SET item_id = ?, item_name = ?, item_availability = ?, item_price = ?, item_long_description = ? WHERE item_id = ?",
+    [itemID, itemName, itemAvailability, itemPrice, itemLDescription, req.params.id], (err, rows) => {
       connection.release();
       if (!err) {
         res.redirect("/item");

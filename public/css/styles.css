@@ -76,6 +76,16 @@ select {
 main {
   background-color: #fffbf1;
   padding-bottom: 75px;
+  animation: fadein 0.4s ease-in;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .scroll {
@@ -331,7 +341,7 @@ html.is-animating .transition-fade {
 
 .detail:hover {
   background-color: #2b2425;
-  transition: 0.5s linear;
+  transition: 0.25s linear;
   color: #faecc9 !important;
 }
 

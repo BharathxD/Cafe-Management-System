@@ -1,4 +1,4 @@
-const pool = require("../../database/sqlConnection");
+const pool = require("../../config/sqlConnection");
 
 exports.delete = (req, res) => {
     pool.getConnection((err, connection) => {

@@ -1,4 +1,4 @@
-const pool = require("../../database/sqlConnection");
+const pool = require("../../config/sqlConnection");
 let itemName, itemPrice;
 
 

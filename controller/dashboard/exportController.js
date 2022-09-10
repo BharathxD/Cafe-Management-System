@@ -1,4 +1,4 @@
-const pool = require("../../database/sqlConnection");
+const pool = require("../../config/sqlConnection");
 const data_exporter = require("json2csv").Parser;
 
 exports.csv = (req, res) => {

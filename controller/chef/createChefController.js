@@ -1,4 +1,4 @@
-const pool = require("../../database/sqlConnection");
+const pool = require("../../config/sqlConnection");
 
 exports.add = (req, res) => {
   var num = Math.floor(Math.random() * (99999 - 10000 + 1)) + 10000;

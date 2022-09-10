@@ -1,4 +1,4 @@
-const pool = require("../../database/sqlConnection");
+const pool = require("../../config/sqlConnection");
 
 exports.add = (req, res) => {
   res.render("user/createUser", {
