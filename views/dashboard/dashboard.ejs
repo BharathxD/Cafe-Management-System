@@ -1,0 +1,49 @@
+<%- include("../partials/NavbarDashboard"); -%>
+
+
+  <div class="container-fluid scroll">
+    <div class="row dashboard">
+      <%- include("../partials/sidebarMenu"); -%>
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 transition-fade" id="swup">
+          <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Dashboard</h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+              <div class="btn-group me-2">
+                <a type="button" href="/get-csv" onclick="setTimeout(()=>{window.location.reload()}, 1000);" class="btn btn-sm btn-outline-secondary btn-outline-dark export-btn">Export</a>
+              </div>
+              <div class="subtotal bg-danger">Subtotal : 
+                <i class="fa-solid fa-indian-rupee-sign" style="font-size: 0.9rem;"></i><%=total%>
+              </div>
+            </div>
+          </div>
+          <table>
+            <thead class="thead">
+              <tr>
+                <th>Order Number</th>
+                <th>Item Name</th>
+                <th>Cook</th>
+                <th>Price</th>
+                <th>Actions</th>
+              </tr>
+              </thead>
+                <tbody>
+                  <% rows.forEach(element => { %>
+                    <tr class="tr">
+                      <td>#<%=element.order_id%></td>
+                      <td><%=element.order_name%></td>
+                      <td><%=element.order_chef%></td>
+                      <td><i class="bi bi-currency-rupee"></i><%=element.order_price%></td>
+                      <td>
+                        <a href="/readorders/<%=element.order_id%>" type="button" class="btn btn-dark"><i class="bi bi-eye-fill"></i></a>
+                        <a href="/delete-dashboard-item/<%=element.order_id%>" onClick="setTimout(()=>{window.location.reload();},2000)" type="button" class="btn btn-dark"><i class="bi bi-x-circle-fill"></i></a>
+                      </td>
+                    </tr>
+                    <% }); %>
+                </tbody>
+              </table>
+    </div>
+    </main>
+  </div>
+
+  <%- include("../partials/footer"); -%>

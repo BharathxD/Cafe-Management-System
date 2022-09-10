@@ -4,12 +4,12 @@ exports.view = (req, res) => {
   pool.getConnection((err, connection) => {
     if (err) console.log(err);
     console.log("Connection: ", connection.threadId);
-    connection.query('SELECT * FROM USER', (err, rows) => {
+    connection.query('SELECT * FROM CHEF', (err, rows) => {
       connection.release();
       !err
-        ? res.render("user/crewOfUsers.ejs", {
+        ? res.render("chef/chefs", {
             rows: rows,
-            getSearchResults: 'userSearchResults'
+            getSearchResults: 'chefSearchResults'
           })
         : console.log(err);
     });
@@ -20,14 +20,14 @@ exports.view = (req, res) => {
 exports.find= (req, res) => {
   pool.getConnection((err, connection) => {
     if (err) console.log(err);
-    let searchValue = req.body.userSearchResults;
+    let searchValue = req.body.chefSearchRsults;
     console.log("Connection: ", connection.threadId);
-    connection.query('SELECT * FROM USER WHERE first_name LIKE ? OR last_name LIKE ? OR phone LIKE ?',['%'+searchValue+'%','%'+searchValue+'%','%'+searchValue+'%'], (err, rows) => {
+    connection.query('SELECT * FROM CHEF WHERE chef_name LIKE ? OR chef_brigade LIKE ? OR chef_id LIKE ?',['%'+searchValue+'%','%'+searchValue+'%','%'+searchValue+'%'], (err, rows) => {
       connection.release();
       !err
-        ? res.render("user/crewOfUsers", {
+        ? res.render("chef/chefs", {
             rows: rows,
-            getSearchResults: 'userSearchResults'
+            getSearchResults: 'chefSearchResults'
           })
         : console.log(err);
     });

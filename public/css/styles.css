@@ -53,6 +53,11 @@ select {
   font: inherit;
 }
 
+*::selection {
+  background-color: #EB1D36;
+  color: #fff;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
     scroll-behavior: auto;
@@ -244,4 +249,102 @@ thead {
 
 html.is-animating .transition-fade {
   opacity: 0;
+}
+
+.account-dropdown {
+  background-color: #fffbf1;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.avail-check {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.avail {
+  width: 100% !important;
+}
+
+.order-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 20px;
+  column-gap: 20px;
+}
+
+.item-name, .item-price {
+  background-color: #564b4c;
+  border-radius: 20px;
+  padding: 20px;
+  color: #fffbf1;
+}
+
+.chef-name {
+  background-color: #2b2425 !important;
+  padding: 20px;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 25px;
+}
+
+.chef-name label {
+  margin-bottom: 20px;
+}
+
+.chef-prescription {
+  background-color: #2b2425 !important;
+  padding: 20px;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 25px;
+}
+
+
+.export-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.view-order-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 20px;
+  column-gap: 20px;
+  padding: 40px;
+  background-color: #2b2425;
+  color: #fff;
+  border-radius: 25px;
+  margin-top: 25px;
+}
+
+.detail {
+  border: 2px solid #564b4c;
+  background-color: #faecc9;
+  color: #2b2425;
+  padding: 20px;
+  border-radius: 25px;
+}
+
+.detail:hover {
+  background-color: #2b2425;
+  transition: 0.5s linear;
+  color: #faecc9 !important;
+}
+
+.sub-heading {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.detail a {
+  color: #2b2425;
+}
+
+.detail a:hover {
+  color: #faecc9;
 }

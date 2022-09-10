@@ -3,7 +3,8 @@ const pool = require("../../database/sqlConnection");
 exports.add = (req, res) => {
   res.render("user/createUser", {
     status: false,
-    error: false
+    error: false,
+    getSearchResults: 'userSearchResults'
   });
 };
 
@@ -21,11 +22,13 @@ exports.onSubmit = (req, res) => {
           res.render("user/createUser", {
             status: true,
             error: false,
+            getSearchResults: 'userSearchResults'
           });
         } else {
           res.render("user/createUser", {
             status: false,
-            error: true
+            error: true,
+            getSearchResults: 'userSearchResults'
           });
           console.log(err);
         }

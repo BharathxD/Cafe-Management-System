@@ -4,12 +4,13 @@ exports.read = (req, res) => {
     pool.getConnection((err, connection) => {
       if (err) console.log(err);
       console.log("Connection: ", connection.threadId);
-      connection.query('SELECT * FROM USER WHERE id = ?',[req.params.id], (err, rows) => {
+      console.log(req.params.id);
+      connection.query('SELECT * FROM order_table WHERE order_id = ?',[req.params.id], (err, rows) => {
         connection.release();
         !err
-          ? res.render("user/readUser", {
+          ? res.render("dashboard/readDashboard", {
               rows: rows,
-              getSearchResults: 'userSearchResults'
+              getSearchResults: 'orderSearchResults'
             })
           : console.log(err);
       });

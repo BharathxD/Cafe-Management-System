@@ -4,14 +4,14 @@ exports.edit = (req, res) => {
   pool.getConnection((err, connection) => {
     if (err) console.log(err);
     console.log("Connection: ", connection.threadId);
-    connection.query('SELECT * FROM USER WHERE id = ?',[req.params.id], (err, rows) => {
+    connection.query('SELECT * FROM item WHERE item_id = ?',[req.params.id], (err, rows) => {
       connection.release();
       !err
-        ? res.render("user/updateUser", {
+        ? res.render("food-items/updateITem", {
             rows: rows,
             status: false,
             error: false,
-            getSearchResults: 'userSearchResults'
+            getSearchResults: 'itemSearchResults'
           })
         : console.log(err);
     });
@@ -19,21 +19,22 @@ exports.edit = (req, res) => {
 };
 
 exports.onEdit = (req, res) => {
-  const { firstName, lastName, mobileNumber, collegeID, emailAddress } =
+  const { itemID, itemName, itemAvailability, itemPrice, itemLDescription } =
       req.body;
   pool.getConnection((err, connection) => {
     if (err) console.log(err);
     console.log("Connection: ", connection.threadId);
-    connection.query("UPDATE user SET first_name = ?, last_name = ?, email = ?, phone = ? WHERE id = ?",
-    [firstName, lastName, emailAddress, mobileNumber, req.params.id], (err, rows) => {
+    connection.query("UPDATE user SET item_id = ?, item_name = ?, item_availability = ?, item_price = ?, item_long_description = ? WHERE id = ?",
+    [itemID, itemName, itemAvailability, itemPrice, itemLDescription], (err, rows) => {
       connection.release();
       if (!err) {
-        res.redirect("/ourteam");
+        res.redirect("/item");
       } else {
-        res.render("user/updateUser", {
+        res.render("food-items/updateItem", {
           status: false,
           error: true,
-          getSearchResults: 'userSearchResults'
+          getSearchResults: 'itemSearchResults',
+          rows: rows,
         });
         console.log(err);
       }
