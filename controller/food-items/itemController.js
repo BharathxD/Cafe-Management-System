@@ -9,6 +9,7 @@ exports.view = (req, res) => {
       !err
         ? res.render("food-items/item", {
             rows: rows,
+            total: rows.length
           })
         : console.log(err);
     });
@@ -28,6 +29,7 @@ exports.find= (req, res) => {
       !err
         ? res.render("food-items/item", {
             rows: rows,
+            total: rows.length
           })
         : console.log(err);
     });

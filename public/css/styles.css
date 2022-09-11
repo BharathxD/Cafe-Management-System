@@ -22,6 +22,10 @@ ol[role="list"] {
   list-style: none;
 }
 
+html {
+  height: 100%;
+}
+
 html:focus-within {
   scroll-behavior: smooth;
 }
@@ -54,7 +58,7 @@ select {
 }
 
 *::selection {
-  background-color: #EB1D36;
+  background-color: #eb1d36;
   color: #fff;
 }
 
@@ -74,7 +78,7 @@ select {
 }
 
 main {
-  background-color: #fffbf1;
+  background-color: #fbf8f1;
   padding-bottom: 75px;
   animation: fadein 0.4s ease-in;
 }
@@ -99,6 +103,7 @@ nav {
 .header-top {
   background-color: #2b2425;
   padding: 5px !important;
+  height: 68px !important;
 }
 
 .search-input {
@@ -140,6 +145,7 @@ nav {
   left: 0;
   right: 0;
   margin: 0;
+  height: 78.8px;
   width: 100%;
   background-color: #2b2425;
   display: grid;
@@ -196,7 +202,7 @@ nav {
 .dashboard-links {
   font-size: 1.25rem;
   font-weight: 500;
-  background-color: #fffbf1;
+  background-color: #fbf8f1;
   color: #2b2425;
   border-radius: 10px;
   padding: 5px;
@@ -208,7 +214,7 @@ nav {
 }
 
 .dashboard-links i {
-    margin-right: 13px !important;
+  margin-right: 13px !important;
 }
 
 .dashboard-links:hover {
@@ -233,13 +239,13 @@ table {
 }
 
 .tr td {
-    padding: 20px;
-    font-size: 1rem;
-    font-weight: 500;
+  padding: 20px;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 td button {
-    border-radius: 25% !important;
+  border-radius: 25% !important;
 }
 
 thead tr {
@@ -249,7 +255,7 @@ thead tr {
 }
 
 thead {
-    border-radius: 10px;
+  border-radius: 10px;
 }
 
 .transition-fade {
@@ -262,7 +268,7 @@ html.is-animating .transition-fade {
 }
 
 .account-dropdown {
-  background-color: #fffbf1;
+  background-color: #fbf8f1;
   padding: 10px;
   border-radius: 5px;
 }
@@ -285,11 +291,12 @@ html.is-animating .transition-fade {
   column-gap: 20px;
 }
 
-.item-name, .item-price {
+.item-name,
+.item-price {
   background-color: #564b4c;
   border-radius: 20px;
   padding: 20px;
-  color: #fffbf1;
+  color: #fbf8f1;
 }
 
 .chef-name {
@@ -311,7 +318,6 @@ html.is-animating .transition-fade {
   font-weight: 700;
   border-radius: 25px;
 }
-
 
 .export-btn {
   display: flex;
@@ -357,4 +363,63 @@ html.is-animating .transition-fade {
 
 .detail a:hover {
   color: #faecc9;
+}
+
+.total-number {
+  color: #ff495e;
+}
+
+.bottom-subtotal {
+  background-color: #fbf8f1 !important;
+  margin-top: 20px;
+  border-radius: 20px;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  gap: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.bottom-subtotal .container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  background-color: #fff6e3;
+  color: #473434;
+  border: 2px solid #fff6e3;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.bottom-subtotal .container:hover {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  border: 2px solid #473434;
+  transition: 0.4s ease-in-out;
+  color: #473434;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.bottom-subtotal h1, h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0;
+}
+
+.bottom-subtotal .left p {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.dotted {
+  margin: 0;
+  width: 20%;
+  border-top: 2px dotted #faecc9;
+  color: #fff !important;
+}
+
+.percent {
+  color: #ff495e;
 }

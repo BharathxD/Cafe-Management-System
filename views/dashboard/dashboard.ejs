@@ -4,7 +4,7 @@
   <div class="container-fluid scroll">
     <div class="row dashboard">
       <%- include("../partials/sidebarMenu"); -%>
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 transition-fade" id="swup">
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 transition-fade">
           <div
             class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h1 class="h2"><strong>Dashboard</strong></h1>
@@ -42,7 +42,31 @@
                     <% }); %>
                 </tbody>
               </table>
-    </div>
+              <%if (bill) {%>
+                <div class="bottom-subtotal">
+                  <div class="container">
+                    <p>Net Total</p>
+                    <h1><%=actualTotal%><i class="bi bi-currency-rupee percent" style="font-size: 1.150rem;margin: 0;"></i></h1>
+                  </div>
+                  <div class="container">
+                    <p>CGST 2.5<span class="percent">%</span> </p>
+                    <h3><%=parseFloat(afterGST).toFixed(2)%><i class="bi bi-currency-rupee percent" style="font-size: 1.150rem;margin: 0;"></i></h3>
+                  </div>
+                  <div class="container">
+                    <p>SGST 2.5<span class="percent">%</span> </p>
+                    <h3><%=parseFloat(afterGST).toFixed(2)%><i class="bi bi-currency-rupee percent" style="font-size: 1.150rem;margin: 0;"></i></h3>
+                  </div>
+                  <div class="container">
+                    <p>Grand Total  </strong></p>
+                    <h3><%=parseFloat(withGST).toFixed(2)%><i class="bi bi-currency-rupee percent" style="font-size: 1.150rem;margin: 0;"></i></h3>
+                  </div>
+                  <div class="container">
+                    <p>Rounded To  </strong></p>
+                    <h1><%=Math.round(withRoundedTotal)%><i class="bi bi-currency-rupee percent" style="font-size: 1.150rem;margin: 0;"></i></h1>
+                  </div>
+                </div>
+                <% } %>
+        </div>
     </main>
   </div>
 

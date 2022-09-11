@@ -16,6 +16,9 @@ router.post('/', dashboardController.find);
 
 router.get('/delete-dashboard-item/:id', deleteDashboardController.delete);
 router.get('/get-csv', exportController.csv);
+router.get('/get-item-csv', exportController.item_csv);
+router.get('/get-user-csv', exportController.user_csv);
+router.get('/get-chef-csv', exportController.chef_csv);
 router.get('/readorders/:id', readDashboardController.read);
 
 router.get('/edituser/:id', updateUserController.edit);

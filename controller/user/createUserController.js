@@ -18,6 +18,7 @@ exports.onSubmit = (req, res) => {
       "INSERT INTO USER SET id = ?, first_name = ?, last_name = ?, email = ?, phone = ?",
       [collegeID, firstName, lastName, emailAddress, mobileNumber],
       (err, rows) => {
+        connection.release();
         if (!err) {
           res.render("user/createUser", {
             status: true,
@@ -34,6 +35,5 @@ exports.onSubmit = (req, res) => {
         }
       }
     );
-    connection.release();
   });
 };

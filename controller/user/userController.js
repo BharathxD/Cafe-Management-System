@@ -9,6 +9,7 @@ exports.view = (req, res) => {
       !err
         ? res.render("user/crewOfUsers.ejs", {
             rows: rows,
+            total: rows.length
           })
         : console.log(err);
     });
@@ -27,6 +28,7 @@ exports.find= (req, res) => {
       !err
         ? res.render("user/crewOfUsers", {
             rows: rows,
+            total: rows.length
           })
         : console.log(err);
     });
