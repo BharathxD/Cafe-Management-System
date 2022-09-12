@@ -30,11 +30,11 @@
                 <tbody>
                   <% rows.forEach(element => { %>
                   <tr class="tr">
-                    <td><%=element.id%></td>
-                    <td><%=element.first_name%></td>
-                    <td><%=element.last_name%></td>
-                    <td><%=element.email%></td>
-                    <td><%=element.phone%></td>
+                    <td><i><%=element.id%></i></td>
+                    <td><i><%=element.first_name%></i></td>
+                    <td><i><%=element.last_name%></i></td>
+                    <td><i><%=element.email%></i></td>
+                    <td><i><%=element.phone%></i></td>
                     <td>
                       <a href="/viewuser/<%=element.id%>" type="button" class="btn btn-dark"><i class="bi bi-eye-fill"></i></a>
                       <a href="/edituser/<%=element.id%>" type="button" class="btn btn-dark"><i class="bi bi-pencil-square"></i></a>

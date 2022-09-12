@@ -29,10 +29,10 @@
                 <tbody>
                   <% rows.forEach(element => { %>
                   <tr class="tr">
-                    <td>F-<%=element.item_id%></td>
-                    <td><%=element.item_name%></td>
-                    <td><%=element.item_availability%></td>
-                    <td><i class="bi bi-currency-rupee"></i><%=element.item_price%></td>
+                    <td><i>F-<%=element.item_id%></i></td>
+                    <td><i><%=element.item_name%></i></td>
+                    <td><i><%=element.item_availability%></i></td>
+                    <td><i><i class="bi bi-currency-rupee"></i><%=element.item_price%></i></td>
                     <td>
                       <a href="/readitem/<%=element.item_id%>" type="button" class="btn btn-dark"><i class="bi bi-eye-fill"></i></a>
                       <a href="/edititem/<%=element.item_id%>" type="button" class="btn btn-dark"><i class="bi bi-pencil-square"></i></a>

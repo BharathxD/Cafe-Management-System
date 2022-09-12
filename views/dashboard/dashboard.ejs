@@ -30,10 +30,10 @@
                 <tbody>
                   <% rows.forEach(element => { %>
                     <tr class="tr">
-                      <td>#<%=element.order_id%></td>
-                      <td><%=element.order_name%></td>
-                      <td><%=element.order_chef%></td>
-                      <td><i class="bi bi-currency-rupee"></i><%=element.order_price%></td>
+                      <td><i>#<%=element.order_id%></i></td>
+                      <td><i><%=element.order_name%></i></td>
+                      <td><i><%=element.order_chef%></i></td>
+                      <td><i><i class="bi bi-currency-rupee"></i><%=element.order_price%></i></td>
                       <td>
                         <a href="/readorders/<%=element.order_id%>" type="button" class="btn btn-dark"><i class="bi bi-eye-fill"></i></a>
                         <a href="/delete-dashboard-item/<%=element.order_id%>" onClick="setTimout(()=>{window.location.reload();},2000)" type="button" class="btn btn-dark"><i class="bi bi-x-circle-fill"></i></a>
