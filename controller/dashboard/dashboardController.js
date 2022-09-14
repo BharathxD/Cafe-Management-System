@@ -14,7 +14,12 @@ exports.view = (req, res) => {
       !err
         ? res.render("dashboard/dashboard", {
             rows: rows,
-            total: total
+            total: total,
+            bill : total == 0 ? false : true,
+            actualTotal : total || 0,
+            afterGST : total * 0.025 || 0,
+            withGST : (total) + total * 0.025 || 0,
+            withRoundedTotal : (total) + total * 0.025 || 0
           })
         : console.log(err);
     });

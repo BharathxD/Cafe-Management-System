@@ -423,3 +423,103 @@ html.is-animating .transition-fade {
 .percent {
   color: #ff495e;
 }
+
+.detail a {
+  color: #2b2425;
+}
+
+.detail a:hover {
+  color: #faecc9;
+}
+
+.dropdown-signout {
+  color: #2b2425;
+  background-color: #fffbf1;
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.dropdown-signout a {
+  text-decoration: none;
+  background-color: #fff6e3;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.signout-btn {
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  flex-direction: column;
+  margin-bottom: 0 !important;
+  font-size: 1.125rem;
+  width: 50px;
+  color: #2b2425;
+}
+
+.login-controller {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100% !important;
+  width: 100% !important;
+  position: relative;
+}
+
+.login-bg {
+  background-image: radial-gradient(#f4f4f4 2px, transparent 2px),
+    radial-gradient(#f4f4f4 2px, transparent 2px);
+  background-size: 32px 32px;
+  background-position: 0 0, 16px 16px;
+  background-color: #2b2425;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.login-main {
+  width: 100%;
+  height: calc(100vh - 68px - 78.8px) !important;
+  padding: 0 !important;
+}
+
+.form-container {
+  width: 400px;
+  z-index: 1;
+  position: relative;
+  background-color: #fff6e3;
+  border-radius: 25px;
+  padding: 20px;
+  height: max-content;
+}
+
+.signin-header {
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.input-field {
+  margin-bottom: 10px;
+}
+
+.login-btn {
+  margin-bottom: 0;
+  background-color: #2b2425;
+  color: #fff6e3;
+}
+
+.register-btn {
+  margin-top: 10px;
+  background-color: #564b4c;
+}
+
+.login-btn:hover {
+  outline: 2px solid #2b2425 !important;
+}
