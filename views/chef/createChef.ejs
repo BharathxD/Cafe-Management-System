@@ -1,0 +1,71 @@
+<%- include("../partials/NavbarDashboard"); -%>
+
+
+    <div class="container-fluid scroll">
+        <div class="row dashboard">
+            <%- include("../partials/SidebarMenu"); -%>
+                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 transition-fade" id="swup">
+                    <div
+                        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <h1 class="h2">Add a new <i><strong>Chef</strong></i></h1>
+                        <i class="fa-solid fa-kitchen-set" style="font-size: 2rem;"></i>
+                    </div>
+                    <form class="needs-validation" action="/newchef" method="post">
+                      <div class="row g-3">
+
+                        <div class="col-sm-6">
+                          <label for="firstName" class="form-label">Chef Name</label>
+                          <input type="text" class="form-control" id="firstName" name="chefName" required  autocomplete="off" placeholder="Chef Name">
+                          <div class="invalid-feedback">
+                            Valid chef Name is required.
+                          </div>
+                        </div>
+            
+                        <div class="col-sm-6">
+                          <label for="lastName" class="form-label">Chef Contact (Email Address) </label>
+                          <input type="text" class="form-control" id="lastName" name="chefContact" required  autocomplete="off" placeholder="chef@example.com">
+                          <div class="invalid-feedback">
+                            Valid Chef Contact Address is required.
+                          </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                          <label for="lastName" class="form-label">Chef Contact (Mobile Number)</label>
+                          <input type="tel" class="form-control" id="lastName" name="chefNumber" required  autocomplete="off" placeholder="123-456-7891" pattern="[0-9]{10}">
+                          <div class="invalid-feedback">
+                            Valid Mobile Number is required.
+                          </div>
+                        </div>
+                        
+
+                        <div class="col-12">
+                          <label for="email" class="form-label">Brigade Level</label>
+                          <input type="text"   class="form-control" id="text" placeholder="Assistant Chef"  autocomplete="off" name="chefBrigade" required>
+                          <div class="invalid-feedback">
+                            Please enter a valid Brigade Level.
+                          </div>
+                        </div>
+                      
+                      </div>
+                        <hr class="my-4">
+                        <button class="w-100 btn btn-danger btn-lg" type="submit" >Create a New Entry</button>
+                      </form>
+                      <%if(status) {%>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: 20px;">
+                          <h4 class="alert-heading">Well done</h4>
+                          <hr>
+                          <p>Head back to <a href="/chefs" class="alert-link">Chef-de-Cuisine Page</a></p>
+                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                      <% } if(error) { %>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 20px;">
+                          <h4 class="alert-heading">Uh-Oh</h4>
+                          <hr>
+                          <p>Couldn't Add the Data, Review the Details and <strong>Try again</strong></p>
+                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <% } %>
+        </div>
+        </main>
+    </div>
+    <%- include("../partials/footer"); -%>

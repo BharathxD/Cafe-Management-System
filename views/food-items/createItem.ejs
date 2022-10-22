@@ -1,0 +1,138 @@
+<%- include("../partials/NavbarDashboard"); -%>
+
+<div class="container-fluid scroll">
+  <div class="row dashboard">
+    <%- include("../partials/SidebarMenu"); -%>
+    <main
+      class="col-md-9 ms-sm-auto col-lg-10 px-md-4 transition-fade"
+      id="swup"
+    >
+      <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+      >
+        <h1 class="h2">
+          Add a new <i><strong>Appetizer</strong></i>
+        </h1>
+        <i class="bi bi-egg-fried" style="font-size: 2rem"></i>
+      </div>
+      <form class="needs-validation" action="/newitem" method="post" novalidate>
+        <div class="row g-3">
+          <div class="col-sm-6">
+            <label for="text" class="form-label">Item Name:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="firstName"
+              name="itemName"
+              required
+              autocomplete="off"
+              placeholder="Item Name"
+              required
+            />
+            <div class="invalid-feedback">Valid Item Name is required.</div>
+          </div>
+
+          <div class="col-sm-6">
+            <label for="select" class="form-label">Item Category:</label>
+            <select
+              class="form-select form-select mb-3"
+              aria-label=".form-select-lg example"
+              name="itemCategory"
+              required
+            >
+              <option value="Food" selected>Food</option>
+              <option value="Desserts">Desserts</option>
+              <option value="Beverages">Beverages</option>
+            </select>
+          </div>
+
+          <div class="col-sm-6">
+            <label for="select" class="form-label">Unavailable:</label>
+            <select
+              class="form-select form-select mb-3"
+              aria-label=".form-select-lg example"
+              name="itemAvailability"
+              required
+            >
+              <option value="Available">Available</option>
+              <option value="Unavailable" selected>Unavailable</option>
+            </select>
+          </div>
+
+          <div class="col-sm-6">
+            <label for="number" class="form-label">Add Price:</label>
+            <input
+              type="number"
+              class="form-control"
+              id="lastName"
+              name="itemPrice"
+              required
+              autocomplete="off"
+              required
+            />
+            <div class="invalid-feedback">Please enter a valid Amount.</div>
+          </div>
+
+          <div class="col-12">
+            <div class="form-floating">
+              <textarea
+                class="form-control"
+                placeholder="Add a Long Description"
+                id="floatingTextarea2"
+                style="height: 200px"
+                name="itemLDescription"
+                required
+              ></textarea>
+              <label for="floatingTextarea2">Long Description</label>
+            </div>
+          </div>
+        </div>
+        <hr class="my-4" />
+        <button
+          class="w-100 btn btn-danger btn-lg"
+          type="submit"
+          onclick="setTimeout(()=>{window.location.reload();},1000);"
+        >
+          Create a New Entry
+        </button>
+      </form>
+      <%if(status) {%>
+      <div
+        class="alert alert-success alert-dismissible fade show"
+        role="alert"
+        style="margin-top: 20px"
+      >
+        <h4 class="alert-heading">Well done</h4>
+        <hr />
+        <p>Head back to <a href="/item" class="alert-link">Appetizer's</a></p>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
+      </div>
+      <% } if(error) { %>
+      <div
+        class="alert alert-danger alert-dismissible fade show"
+        role="alert"
+        style="margin-top: 20px"
+      >
+        <h4 class="alert-heading">Uh-Oh</h4>
+        <hr />
+        <p>
+          Couldn't Add the Data, Review the Details and
+          <strong>Try again</strong>
+        </p>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
+      </div>
+      <% } %>
+    </main>
+  </div>
+  <%- include("../partials/footer"); -%>
+</div>

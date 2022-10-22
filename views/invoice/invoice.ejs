@@ -1,0 +1,48 @@
+<%- include("../partials/NavbarDashboard"); -%>
+
+  <div class="container-fluid scroll">
+    <div class="row dashboard">
+      <%- include("../partials/sidebarMenu"); -%>
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 transition-fade">
+          <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2"><i><strong>Invoice</strong> <sup class="total-number"><%=total%></sup></i></h1>
+          <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group me-2">
+              <a type="button" href="/get-invoice-csv" onclick="setTimeout(()=>{window.location.reload()}, 1000);" class="btn btn-warning export-btn">Export</a>
+            </div>
+          </div>
+          </div>
+          <table>
+            <thead class="dashboard-thead">
+              <tr>
+                <th>Invoice ID</th>
+                <th>Customer Name</th>
+                <th>Customer Number</th>
+                <th>Customer Email</th>
+                <th>Payment Method</th>
+                <th>Total Amount</th>
+                <th>Actions</th>
+              </tr>
+              </thead>
+                <tbody>
+                  <% rows.forEach(element => { %>
+                    <tr class="tr">
+                      <td>INVID-<%=element.invoice_id%></td>
+                      <td><%=element.customer_name%></td>
+                      <td><%=element.customer_no%></td>
+                      <td><%=element.customer_email%></td>
+                      <td><%=element.payment_method%></td>
+                      <td><%=element.order_total%></td>
+                      <td>
+                        <a href="invoice/delete/<%=element.invoice_id%>" onclick="setTimeout(()=>{window.location.reload()}, 1000);" type="button" class="btn btn-dark"><i class="bi bi-x-circle-fill"></i></a>
+                      </td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+              </table>
+    </div>
+    </main>
+  </div>
+
+  <%- include("../partials/footer"); -%>
