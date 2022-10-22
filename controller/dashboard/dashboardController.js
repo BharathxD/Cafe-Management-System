@@ -1,10 +1,13 @@
-const DB = require("../../config/getConnection");
+const DB = require('../../config/getConnection');
 
 exports.view = (req, res) => {
   DB.query(`SELECT * FROM ORDER_TABLE`, null, (rows, err) => {
-    total = rows.length;
+    total = 0
+    rows.forEach(element => {
+      total += element.order_price
+    });
     !err
-      ? res.render("dashboard/dashboard", {
+      ? res.render('dashboard/dashboard', {
           rows: rows,
           total: total,
           bill: total == 0 ? false : true,
@@ -21,12 +24,12 @@ exports.find = (req, res) => {
   const { getUserPaymentMethod, getOrderTotal, getUserContact } = req.body;
   console.log(getUserPaymentMethod, getOrderTotal, getUserContact);
   DB.query(
-    `INSERT INTO invoice(payment_method, order_total, customer_id) values("${getUserPaymentMethod}", "${getOrderTotal}", (SELECT customer_id FROM customer WHERE customer_no = ${getUserContact}))
+    `INSERT INTO invoice(payment_method, order_total, customer_id) values('${getUserPaymentMethod}', '${getOrderTotal}', (SELECT customer_id FROM customer WHERE customer_no = ${getUserContact}))
   `,
     null,
     (rows, err) => {
       if (!err) {
-        res.redirect("/");
+        res.redirect('/');
       } else {
         console.log(err);
       }

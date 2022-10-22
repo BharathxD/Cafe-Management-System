@@ -35,8 +35,3 @@ var DB = (function () {
 })();
 
 module.exports = DB;
-
-//? Callback Function for the JS file which is Quereing the DATA
-// DB.query("select * from tasks", null, function (data, error) {
-//     callback(data, error);
-//  });

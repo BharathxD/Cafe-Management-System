@@ -1,10 +1,10 @@
-const DB = require("../../config/getConnection");
+const DB = require('../../config/getConnection');
 
 exports.add = (req, res) => {
-  res.render("food-items/createitem", {
+  res.render('food-items/createitem', {
     status: false,
     error: false,
-    getSearchResults: "itemSearchResults",
+    getSearchResults: 'itemSearchResults',
   });
 };
 
@@ -15,16 +15,16 @@ exports.onSubmit = (req, res) => {
       null,
       (rows, err) => {
         if (!err) {
-          res.render("food-items/createItem", {
+          res.render('food-items/createItem', {
             status: true,
             error: false,
-            getSearchResults: "itemSearchResults",
+            getSearchResults: 'itemSearchResults',
           });
         } else {
-          res.render("food-items/createItem", {
+          res.render('food-items/createItem', {
             status: false,
             error: true,
-            getSearchResults: "itemSearchResults",
+            getSearchResults: 'itemSearchResults',
           });
           console.log(err);
         }

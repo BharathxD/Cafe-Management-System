@@ -1,4 +1,4 @@
-const DB = require("../../config/getConnection");
+const DB = require('../../config/getConnection');
 
 exports.edit = (req, res) => {
   DB.query(
@@ -6,11 +6,11 @@ exports.edit = (req, res) => {
     null,
     (rows, err) => {
       !err
-        ? res.render("chef/updatechef", {
+        ? res.render('chef/updatechef', {
             rows: rows,
             status: false,
             error: false,
-            getSearchResults: "chefSearchResults",
+            getSearchResults: 'chefSearchResults',
           })
         : console.log(err);
     }
@@ -24,12 +24,12 @@ exports.onEdit = (req, res) => {
     null,
     (rows, err) => {
       if (!err) {
-        res.redirect("/chefs");
+        res.redirect('/chefs');
       } else {
-        res.render("chef/updatechef", {
+        res.render('chef/updatechef', {
           status: false,
           error: true,
-          getSearchResults: "chefSearchResults",
+          getSearchResults: 'chefSearchResults',
           rows: rows,
         });
         console.log(err);

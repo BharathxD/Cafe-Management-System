@@ -1,4 +1,4 @@
-const DB = require("../../config/getConnection");
+const DB = require('../../config/getConnection');
 
 exports.read = (req, res) => {
   DB.query(
@@ -6,9 +6,9 @@ exports.read = (req, res) => {
     null,
     (rows, err) => {
       !err
-        ? res.render("chef/readChef", {
+        ? res.render('chef/readChef', {
             rows: rows,
-            getSearchResults: "chefSearchResults",
+            getSearchResults: 'chefSearchResults',
           })
         : console.log(err);
     }

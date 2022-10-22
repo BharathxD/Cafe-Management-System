@@ -1,38 +1,30 @@
-const pool = require("../../config/sqlConnection");
-
+const pool = require('../../config/sqlConnection');
+const DB = require('../../config/getConnection');
 
 exports.view = (req, res) => {
-  pool.getConnection((err, connection) => {
-    if (err) console.log(err);
-    console.log("Connection: ", connection.threadId);
-    connection.query('SELECT * FROM CHEF', (err, rows) => {
-      connection.release();
-      !err
-        ? res.render("chef/chefs", {
-            rows: rows,
-            total: rows.length
-          })
-        : console.log(err);
-    });
+  DB.query(`SELECT * FROM CHEF`, (rows, err) => {
+    !err
+      ? res.render('chef/chefs', {
+          rows: rows,
+          total: rows.length,
+        })
+      : console.log(err);
   });
 };
 
-
-exports.find= (req, res) => {
-  pool.getConnection((err, connection) => {
-    if (err) console.log(err);
-    let searchValue = req.body.chefSearchResults;
-    console.log("Connection: ", connection.threadId);
-    searchValue = req.body.getSearchResults;
-    connection.query('SELECT * FROM CHEF WHERE chef_name LIKE ? OR chef_brigade LIKE ? OR chef_id LIKE ?',['%'+searchValue+'%','%'+searchValue+'%','%'+searchValue+'%'], (err, rows) => {
-      console.log(rows)
+exports.find = (req, res) => {
+  let searchValue = req.body.getSearchResults;
+  DB.query(
+    `SELECT * FROM CHEF WHERE chef_name LIKE '${searchValue}' OR chef_brigade LIKE  OR chef_id LIKE '${searchValue}'`,
+    null,
+    (rows, err) => {
+      console.log(rows);
       !err
-        ? res.render("chef/chefs", {
+        ? res.render('chef/chefs', {
             rows: rows,
-            total: rows.length
+            total: rows.length,
           })
         : console.log(err);
-        connection.release();
-    });
-  });
+    }
+  );
 };
