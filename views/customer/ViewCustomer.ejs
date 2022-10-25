@@ -1,0 +1,64 @@
+<%- include("../partials/NavbarDashboard"); -%>
+
+  <div class="container-fluid scroll">
+    <div class="row dashboard">
+      <%- include("../partials/sidebarMenu"); -%>
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 transition-fade">
+          <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2"><i><strong>Customers</strong> <sup class="total-number">
+                  <%=total%>
+                </sup></i></h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+              <div class="btn-group me-2">
+                <a type="button" href="/get-customer-csv" onclick="setTimeout(()=>{window.location.reload()}, 1000);"
+                  class="btn btn-outline-dark export-btn">Export</a>
+              </div>
+              <div class="btn-toolbar mb-2 mb-md-0">
+                <a type="button" class="btn btn-outline-danger" href="/customer/new">Add Customer&emsp13;<i
+                    class="bi bi-person-plus-fill"></i></a>
+              </div>
+            </div>
+          </div>
+          <table>
+            <thead class="dashboard-thead">
+              <tr>
+                <th>Customer ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% rows.forEach(element=> { %>
+                <tr class="tr">
+                  <td>C-<%=element.customer_id%>
+                  </td>
+                  <td>
+                    <%=element.customer_name%>
+                  </td>
+                  <td>
+                    <%=element.customer_email%>
+                  </td>
+                  <td>
+                    <%=element.customer_no%>
+                  </td>
+                  <td>
+                    <a href="customer/read/<%=element.customer_id%>" type="button" class="btn btn-dark"><i
+                        class="bi bi-eye-fill"></i></a>
+                    <a href="customer/edit/<%=element.customer_id%>" type="button" class="btn btn-dark"><i
+                        class="bi bi-pencil-square"></i></a>
+                    <a href="customer/delete/<%=element.customer_id%>"
+                      onclick="setTimeout(()=>{window.location.reload()}, 1000);" type="button" class="btn btn-dark"><i
+                        class="bi bi-x-circle-fill"></i></a>
+                  </td>
+                </tr>
+                <% }) %>
+            </tbody>
+          </table>
+      </div>
+    </main>
+  </div>
+
+ <%- include("../partials/footer"); -%>

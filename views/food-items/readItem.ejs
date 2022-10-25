@@ -1,0 +1,45 @@
+<%- include("../partials/NavbarDashboard"); -%>
+
+
+  <div class="container-fluid scroll">
+    <div class="row dashboard">
+      <%- include("../partials/sidebarMenu"); -%>
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 transition-fade" id="swup">
+          <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2"><strong><i><%=rows[0].item_name%></i></strong></h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+              <a type="button" class="btn btn-outline-danger" href="/newitem">Add New Appetizer&emsp13;<i class="bi bi-person-plus-fill"></i></a>
+            </div>
+          </div>
+          <div class="view-order-container">
+            <div class="sub-heading">
+            <h5>Name</h5>
+            </div>
+            <div class="detail one">
+                <strong><%=rows[0].item_name%></strong>
+            </div>
+            <div class="sub-heading">
+            <h5>Availability</h5>
+            </div>
+            <div class="detail two">
+                <strong><%=rows[0].item_availability%></strong>
+            </div>
+            <div class="sub-heading">
+            <h5>Price</h5>
+            </div>
+            <div class="detail three">
+                <strong><%=rows[0].item_price%></strong>
+            </div>
+            <div class="sub-heading">
+            <h5>Description</h5>
+            </div>
+            <div class="detail three">
+                <strong><%=rows[0].item_long_description%></strong>
+            </div>
+        </div>
+    </div>
+    </main>
+  </div>
+
+  <%- include("../partials/footer"); -%>
