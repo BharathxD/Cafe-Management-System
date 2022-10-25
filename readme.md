@@ -1,7 +1,4 @@
-
-
-
-![App Screenshot](https://i.postimg.cc/SKJTJfHB/Screenshot-2022-10-22-at-2-11-09-PM.png)
+![App Screenshot](https://i.postimg.cc/Fhx2CPpH/Screenshot-2022-10-22-at-2-11-09-PM.png)
 
 # Café Management System
 
@@ -85,4 +82,3 @@ Here are some related projects :
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/bharath-lakshman-9a9898239/)
 
 [![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/Bharath_uwu)
-
