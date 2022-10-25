@@ -7,20 +7,19 @@ exports.view = (req, res) => {
             rows: rows,
             total: rows.length
           })
-        : console.log('err');
+        : console.log(err);
     });
 };
 
 
 exports.find= (req, res) => {
     let searchValue = req.body.getSearchResults;
-   DB.query('SELECT * FROM ITEM WHERE item_name LIKE ? OR item_availability LIKE ? OR item_id LIKE ?',['%'+searchValue+'%','%'+searchValue+'%','%'+searchValue+'%'], (err, rows) => {
-      console.log(rows)
+   DB.query(`SELECT * FROM ITEM WHERE item_name LIKE '${searchValue}' OR item_availability LIKE '${searchValue}' OR item_id LIKE '${searchValue}'`,null, (rows, err) => {
       !err
         ? res.render('food-items/item', {
             rows: rows,
             total: rows.length
           })
-        : console.log('err');
+        : console.log(err);
     });
 };

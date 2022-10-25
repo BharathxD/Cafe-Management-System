@@ -1,9 +1,9 @@
-const DB = require('../../config/getConnection');
+const DB = require("../../config/getConnection");
 
 exports.onView = (req, res) => {
   DB.query(`SELECT * FROM customer`, null, (rows, err) => {
     !err
-      ? res.render('Customer/ViewCustomer', {
+      ? res.render("Customer/ViewCustomer", {
           rows: rows,
           total: rows.length,
         })
@@ -18,7 +18,7 @@ exports.onSearch = (req, res) => {
     null,
     (rows, err) => {
       !err
-        ? res.render('Customer/ViewCustomer', {
+        ? res.render("Customer/ViewCustomer", {
             rows: rows,
             total: rows.length,
           })

@@ -7,7 +7,7 @@ const readCustomerController = require('../../controller/customer/readCustomerCo
 const updateCustomerController = require('../../controller/customer/updateCustomerController');
 
 router.use((req, res, next) => {
-    res.locals.myRoute = 'ourteam'
+    res.locals.myRoute = 'customer'
     next();
 });
 
@@ -18,7 +18,7 @@ router.get('/customer/new', createCustomerController.onView);
 router.post('/customer/new', createCustomerController.onSubmit);
 
 router.get('/customer/edit/:id', updateCustomerController.onView);
-router.post('/customer/edit/:id', updateCustomerController.onEdit);
+router.post('/customer/edituser/:id', updateCustomerController.onEdit);
 
 router.get('/customer/read/:id', readCustomerController.onRead);
 router.get('/customer/delete/:id', deleteCustomerController.onDelete);

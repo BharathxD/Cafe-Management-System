@@ -6,12 +6,16 @@ const deleteDashboardController = require('../../controller/dashboard/deleteDash
 const readDashboardController = require('../../controller/dashboard/readDashboardController');
 
 router.use((req, res, next) => {
-    res.locals.myRoute = ''
+    res.locals.myRoute = 'getDashboard'
     next();
 });
 
 router.get('/', dashboardController.view);
 router.post('/', dashboardController.find);
+
+//? Does nothing but returns to homepage
+
+router.post('/getDashboard', dashboardController.onSearch);
 
 router.get('/delete-dashboard-item/:id', deleteDashboardController.delete);
 

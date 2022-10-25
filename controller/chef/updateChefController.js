@@ -18,20 +18,15 @@ exports.edit = (req, res) => {
 };
 
 exports.onEdit = (req, res) => {
-  const { chefID, chefName, chefContact, chefBrigade } = req.body;
+  const { chefID, chefName, chefContact, chefNumber, chefBrigade } = req.body;
   DB.query(
-    `UPDATE chef SET chef_id = '${chefID}', chef_name = '${chefName}', chef_contact = '${chefContact}', chef_brigade = '${chefBrigade}' WHERE chef_id = '${chefID}'`,
+    `UPDATE chef SET chef_name = '${chefName}', chef_contact = '${chefContact}', chef_number = ${chefNumber}, chef_brigade = '${chefBrigade}' WHERE chef_id = ${chefID}`,
     null,
     (rows, err) => {
       if (!err) {
         res.redirect('/chefs');
       } else {
-        res.render('chef/updatechef', {
-          status: false,
-          error: true,
-          getSearchResults: 'chefSearchResults',
-          rows: rows,
-        });
+        res.redirect('/chefs')
         console.log(err);
       }
     }

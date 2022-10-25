@@ -4,7 +4,7 @@ const router= express.Router();
 const invoiceController = require('../../controller/invoice/invoiceController');
 
 router.use((req, res, next) => {
-    res.locals.myRoute = ''
+    res.locals.myRoute = 'getDashboard'
     next();
 });
 

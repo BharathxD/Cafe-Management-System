@@ -1,13 +1,13 @@
-const DB = require('../../config/getConnection');
+const DB = require("../../config/getConnection");
 
 exports.view = (req, res) => {
   DB.query(`SELECT * FROM ORDER_TABLE`, null, (rows, err) => {
-    total = 0
-    rows.forEach(element => {
-      total += element.order_price
+    total = 0;
+    rows.forEach((element) => {
+      total += element.order_price;
     });
     !err
-      ? res.render('dashboard/dashboard', {
+      ? res.render("dashboard/dashboard", {
           rows: rows,
           total: total,
           bill: total == 0 ? false : true,
@@ -28,11 +28,12 @@ exports.find = (req, res) => {
   `,
     null,
     (rows, err) => {
-      if (!err) {
-        res.redirect('/');
-      } else {
-        console.log(err);
-      }
+      if(err) { console.log(err) }
+      res.redirect("/");
     }
   );
+};
+
+exports.onSearch = (req, res) => {
+  res.redirect("/");
 };

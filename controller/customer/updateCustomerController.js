@@ -20,8 +20,7 @@ exports.onEdit = (req, res) => {
   DB.query('UPDATE customer SET customer_name = ?, customer_email = ?, customer_no = ? WHERE customer_id = ?',[customerName, customerEmail, customerNo, req.params.id],
     (rows, err) => {
       if (!err) {
-        res.redirect('/ourteam');
-        console.log('Success')
+        res.redirect('/customer');
       } else {
         res.render('Customer/UpdateCustomer', {
           status: false,
@@ -29,7 +28,6 @@ exports.onEdit = (req, res) => {
           getSearchResults: 'userSearchResults'
         });
         console.log(err);
-        console.log('Error')
       }
     });
   

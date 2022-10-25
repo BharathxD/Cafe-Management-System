@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const port = 3000;
 require('dotenv').config();
 
-/* Importing All the Routes */ 
+/* Importing All the Routes */
 
 const dashboard = require('./routes/dashboard/dashboard.js');
 const csv = require('./routes/csv/csv.js');
@@ -44,5 +44,5 @@ app.use(invoice);
 /* Listening on the port 3000 */
 
 app.listen(port, () => {
-  console.log(`The Magic 🪄 is Happening on ${port}`);
+  console.log(`The Magic 🪄  is Happening on ${port}`);
 });

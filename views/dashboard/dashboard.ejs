@@ -64,7 +64,10 @@
                   <hr>
                   <div class="registered">
                     <h3 class="sub-heading-order">Haven't Registered Yet?</h3>
-                    <a href="/customer" type="button" class="btn btn-danger" style="width: 100%;">Add A New Customer</a>
+                    <div class="order-btns" style="grid-template-columns:1fr 1fr;">
+                    <a href="/customer/new" type="button" class="btn btn-danger" style="width: 100%;">Add A New Customer</a>
+                    <a href="/customer" type="button" class="btn btn-warning" style="width: 100%;">Find Customer</a>
+                  </div>
                   </div>
                   <hr>
                   <div>
@@ -87,7 +90,7 @@
                   <a class="btn btn-danger pay-btn add-new-item" type="button" href="/item">Add New Item</a>
                   <div class="or-bt">
                   <em>or</em>
-                </div>
+                  </div>
                   <button onclick="this.form.submit()" class="btn btn-warning pay-btn">Proceed &amp; Pay</button>
                 </div>
               </form>

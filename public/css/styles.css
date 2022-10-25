@@ -623,6 +623,7 @@ table tr:first-child th:last-child {
   gap: 10px;
 }
 
+
 .customer-container, .payment-container {
   background-color: #473434;
   padding: 20px;
@@ -703,5 +704,12 @@ table tr:first-child th:last-child {
   .header-top {
     display: flex;
     align-items: flex-end;
+  }
+  .search-input {
+    display: none;
+  }
+  .place-order-container {
+    grid-template-rows: auto;
+    grid-template-columns: auto;
   }
 }
