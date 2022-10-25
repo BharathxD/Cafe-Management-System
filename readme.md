@@ -1,4 +1,4 @@
-![App Screenshot](https://i.postimg.cc/Fhx2CPpH/Screenshot-2022-10-22-at-2-11-09-PM.png)
+![App Screenshot](https://i.postimg.cc/d3cdYJ7H/Screenshot-2022-10-25-at-9-45-29-PM.png)
 
 # Café Management System
 
