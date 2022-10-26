@@ -22,13 +22,14 @@ exports.view = (req, res) => {
 
 exports.find = (req, res) => {
   const { getUserPaymentMethod, getOrderTotal, getUserContact } = req.body;
-  console.log(getUserPaymentMethod, getOrderTotal, getUserContact);
   DB.query(
-    `INSERT INTO invoice(payment_method, order_total, customer_id) values('${getUserPaymentMethod}', '${getOrderTotal}', (SELECT customer_id FROM customer WHERE customer_no = ${getUserContact}))
+    `INSERT INTO invoice(payment_method, order_total, customer_id) values(?, ?, (SELECT customer_id FROM customer WHERE customer_no = ?)
   `,
-    null,
+    [getUserPaymentMethod, getOrderTotal, getUserContact],
     (rows, err) => {
-      if(err) { console.log(err) }
+      if (err) {
+        console.log(err);
+      }
       res.redirect("/");
     }
   );

@@ -11,15 +11,15 @@
             <h1 class="h2"><i><strong>Checkout Page</strong></i></h1>
             <i class="bi bi-egg-fried" style="font-size: 2rem;"></i>
           </div>
-          <form class="needs-validation" action="/addtodashboard" method="post">
+          <form class="needs-validation" action="/addtodashboard" method="post" novalidate>
             <div class="order-container">
               <div class="item-name">
-                <label for="firstName" class="form-label">Item Selected:</label>
+                <label class="form-label">Item Selected:</label>
                   <h1 value="<%=rows[0].item_name%>" id="selectedItemName"><%=rows[0].item_name%></h1>
               </div>
 
               <div class="item-price">
-                <label for="firstName" class="form-label">Item Price:</label>
+                <label class="form-label">Item Price:</label>
                 <h1 value="<%=rows[0].item_price%>" id="selectedItemPrice">
                   <%=rows[0].item_price%><i class="bi bi-currency-rupee" ></i>
                 </h1>
@@ -27,8 +27,8 @@
               </div>
               
               <div class="chef-name">
-                <label for="firstName" class="form-label">Choose The Chef</label>
-                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"    name="selectedChefName">
+                <label for="chef-name" class="form-label">Choose The Chef</label>
+                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"  id="chef-name"  name="selectedChefName">
                   <% rows.forEach(element => { %>
                     <option value="<%=element.chef_name%>" selected><%=element.chef_name%></option>
                     <% }) %>
@@ -36,8 +36,8 @@
               </div>
               
               <div class="chef-prescription">
-                <label for="firstName" class="form-label">Chef's Prescription</label>
-                <textarea class="form-control" name="orderPrescription" id="" style="height: 100px;" placeholder="Add a Prescription"></textarea>
+                <label for="chef-prescription" class="form-label">Chef's Prescription</label>
+                <textarea class="form-control" name="orderPrescription" id="chef-prescription" style="height: 100px;" placeholder="Add a Prescription"></textarea>
               </div>
             </div>
 

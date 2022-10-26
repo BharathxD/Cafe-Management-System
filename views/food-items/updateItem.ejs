@@ -9,20 +9,12 @@
             class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h1 class="h2">Modify The Data</h1>
           </div>
-          <form class="needs-validation" action="/edititem/<%=rows[0].item_id%>" method="post">
+          <form class="needs-validation" action="/edititem/<%=rows[0].item_id%>" method="post" novalidate>
             <div class="row g-3">
-              <div class="col-sm-6">
-                <label for="firstName" class="form-label">Item ID:</label>
-                <input type="number" class="form-control" id="firstName" name="itemID" required autocomplete="off"
-                  value="<%=rows[0].item_id%>" placeholder="Item ID" pattern="[0-9]{5}">
-                <div class="invalid-feedback">
-                  Valid Item ID is required.
-                </div>
-              </div>
 
               <div class="col-sm-6">
-                <label for="firstName" class="form-label">Item Name:</label>
-                <input type="text" class="form-control" id="firstName" name="itemName" required autocomplete="off"
+                <label for="itemName" class="form-label">Item Name:</label>
+                <input type="text" class="form-control" id="itemName" name="itemName" required autocomplete="off"
                   value="<%=rows[0].item_name%>" placeholder="Item Name">
                 <div class="invalid-feedback">
                   Valid Item Name is required.
@@ -30,30 +22,40 @@
               </div>
 
               <div class="col-sm-6">
-                <label for="firstName" class="form-label">Unavailable:</label>
+                <label for="itemAvailability" class="form-label">Unavailable:</label>
                 <select class="form-select form-select mb-3" aria-label=".form-select-lg example"
-                  name="itemAvailability">
-                  <option value="Available" <% if(rows[0].item_availability=='Available' ) {%>
-                    selected
-                    <% } %>
-                      >
-                      Available
+                  name="itemAvailability" id="itemAvailability">
+                  <option value="Available" <% if(rows[0].item_availability=='Available' ) {%> selected <% } %>>
+                    Available
                   </option>
-                  <option <% if(rows[0].item_availability=='Unavailable' ) {%>
-                    selected
-                    <% } %>
-                      >Unavailable
+                  <option <% if(rows[0].item_availability=='Unavailable' ) {%> selected <% } %>>
+                    Unavailable
                   </option>
                 </select>
               </div>
 
               <div class="col-sm-6">
-                <label for="number" class="form-label">Item Price:</label>
-                <input type="number" class="form-control" id="lastName" name="itemPrice" required
+                <label for="itemPrice" class="form-label">Item Price:</label>
+                <input type="number" class="form-control" id="itemPrice" name="itemPrice" required
                   autocomplete="off" value="<%=rows[0].item_price%>">
                 <div class="invalid-feedback">
                   Please enter a valid Amount.
                 </div>
+              </div>
+
+              <div class="col-sm-6">
+                <label for="itemCategory" class="form-label">Item Category:</label>
+                <select
+                  class="form-select form-select mb-3"
+                  aria-label=".form-select-lg example"
+                  name="itemCategory"
+                  id="itemCategory"
+                  required
+                >
+                  <option value="Food" selected>Food</option>
+                  <option value="Desserts">Desserts</option>
+                  <option value="Beverages">Beverages</option>
+                </select>
               </div>
 
               <div class="col-12">

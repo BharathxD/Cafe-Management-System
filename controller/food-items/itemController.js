@@ -14,7 +14,7 @@ exports.view = (req, res) => {
 
 exports.find= (req, res) => {
     let searchValue = req.body.getSearchResults;
-   DB.query(`SELECT * FROM ITEM WHERE item_name LIKE '${searchValue}' OR item_availability LIKE '${searchValue}' OR item_id LIKE '${searchValue}'`,null, (rows, err) => {
+   DB.query(`SELECT * FROM ITEM WHERE item_name LIKE ? OR item_availability LIKE ? OR item_id LIKE ?`,['%'+searchValue+'%', '%'+searchValue+'%', '%'+searchValue+'%'], (rows, err) => {
       !err
         ? res.render('food-items/item', {
             rows: rows,

@@ -9,52 +9,47 @@
                         class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                         <h1 class="h2">Modify The Data</h1>
                     </div>
-                    <form class="needs-validation" action="/editchef/<%=rows[0].chef_id%>" method="post">
+                    <form class="needs-validation" action="/editchef/<%=rows[0].chef_id%>" method="post" novalidate>
                         <div class="row g-3">
-                          <div class="col-sm-6">
-                            <label for="firstName" class="form-label">Chef ID</label>
-                            <input type="number" value="<%=rows[0].chef_id%>" class="form-control" id="firstName" name="chefID" required autocomplete="off">
-                            <div class="invalid-feedback">
-                              Valid Chef ID is required.
-                            </div>
-                          </div>
 
                           <div class="col-sm-6">
-                            <label for="firstName" class="form-label">Chef Name</label>
-                            <input type="text" value="<%=rows[0].chef_name%>" class="form-control" id="firstName" name="chefName" required  autocomplete="off">
+                            <label for="chefName" class="form-label">Chef Name</label>
+                            <input type="text" value="<%=rows[0].chef_name%>" class="form-control" id="chefName" name="chefName" required  autocomplete="off">
                             <div class="invalid-feedback">
                               Valid chef Name is required.
                             </div>
                           </div>
               
                           <div class="col-sm-6">
-                            <label for="lastName" class="form-label">Chef Contact (Email Address) </label>
-                            <input type="tel" value="<%=rows[0].chef_contact%>" class="form-control" id="lastName" name="chefContact" required  autocomplete="off" placeholder="chef@example.com">
+                            <label for="chefEmail" class="form-label">Chef Contact (Email Address) </label>
+                            <input type="tel" value="<%=rows[0].chef_contact%>" class="form-control" id="chefEmail" name="chefContact" required  autocomplete="off" placeholder="chef@example.com">
                             <div class="invalid-feedback">
-                              Valid Chef Contact is required.
+                              Valid Chef Email is required.
                             </div>
                           </div>
 
-                          <div class="col-sm-6">
-                            <label for="lastName" class="form-label"
+                          <div class="col-sm-12">
+                            <label for="chefNumber" class="form-label"
                               >Chef Contact (Mobile Number)</label
                             >
                             <input
                               type="tel"
                               class="form-control"
-                              id="lastName"
+                              id="chefNumber"
                               name="chefNumber"
+                              value="<%=rows[0].chef_number%>"
                               required
                               autocomplete="off"
-                              placeholder="123-456-7891"
+                              placeholder="123-456-7891" 
+                              pattern="[0-9]{10}"
                             />
                             <div class="invalid-feedback">Valid Mobile Number is required.</div>
                           </div>
                           
 
                           <div class="col-12">
-                            <label for="email" class="form-label">Brigade Level</label>
-                            <input type="text"value="<%=rows[0].chef_brigade%>"   class="form-control" id="text" placeholder="Assistant Chef"  autocomplete="off" name="chefBrigade" required>
+                            <label for="chefBrigade" class="form-label">Brigade Level</label>
+                            <input type="text"value="<%=rows[0].chef_brigade%>"   class="form-control" id="chefBrigade" placeholder="Assistant Chef"  autocomplete="off" name="chefBrigade" required>
                             <div class="invalid-feedback">
                               Please enter a valid Brigade Level.
                             </div>

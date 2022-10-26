@@ -18,13 +18,12 @@
       <form class="needs-validation" action="/newitem" method="post" novalidate>
         <div class="row g-3">
           <div class="col-sm-6">
-            <label for="text" class="form-label">Item Name:</label>
+            <label for="itemName" class="form-label">Item Name:</label>
             <input
               type="text"
               class="form-control"
-              id="firstName"
+              id="itemName"
               name="itemName"
-              required
               autocomplete="off"
               placeholder="Item Name"
               required
@@ -33,11 +32,12 @@
           </div>
 
           <div class="col-sm-6">
-            <label for="select" class="form-label">Item Category:</label>
+            <label for="itemCategory" class="form-label">Item Category:</label>
             <select
               class="form-select form-select mb-3"
               aria-label=".form-select-lg example"
               name="itemCategory"
+              id="itemCategory"
               required
             >
               <option value="Food" selected>Food</option>
@@ -47,11 +47,12 @@
           </div>
 
           <div class="col-sm-6">
-            <label for="select" class="form-label">Unavailable:</label>
+            <label for="itemAvailability" class="form-label">Unavailable:</label>
             <select
               class="form-select form-select mb-3"
               aria-label=".form-select-lg example"
               name="itemAvailability"
+              id="itemAvailability"
               required
             >
               <option value="Available">Available</option>
@@ -60,11 +61,11 @@
           </div>
 
           <div class="col-sm-6">
-            <label for="number" class="form-label">Add Price:</label>
+            <label for="itemPrice" class="form-label">Add Price:</label>
             <input
               type="number"
               class="form-control"
-              id="lastName"
+              id="itemPrice"
               name="itemPrice"
               required
               autocomplete="off"
@@ -91,7 +92,6 @@
         <button
           class="w-100 btn btn-danger btn-lg"
           type="submit"
-          onclick="setTimeout(()=>{window.location.reload();},1000);"
         >
           Create a New Entry
         </button>

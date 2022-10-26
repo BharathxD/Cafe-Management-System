@@ -11,8 +11,10 @@ exports.onView = (req, res) => {
 exports.onSubmit = (req, res) => {
   const { customerName, customerNo, customerEmail } = req.body;
   DB.query(
-    `INSERT INTO customer SET customer_name = '${customerName}', customer_no = '${customerNo}', customer_email = '${customerEmail}'`,
-    null,
+    `INSERT INTO customer SET customer_name = ?, customer_no = ?, customer_email = ?`,
+    [customerName,
+      customerNo,
+      customerEmail],
     (rows, err) => {
       if (!err) {
         console.log('Success');

@@ -1,62 +1,77 @@
 <%- include("../partials/NavbarDashboard"); -%>
 
 
-    <div class="container-fluid scroll">
-        <div class="row dashboard">
-            <%- include("../partials/SidebarMenu"); -%>
-                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 transition-fade" id="swup">
-                    <div
-                        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h1 class="h2">Add a new <i><strong>Customer</strong></i></h1>
-                        <i class="fa-solid fa-user-plus" style="font-size: 2rem;"></i>
-                    </div>
-                    <form class="needs-validation" action="/customer/new" method="post">
-                        <div class="row g-3">
-                          
-                          <div class="col-sm-6">
-                            <label for="text" class="form-label">Customer Name</label>
-                            <input type="text" class="form-control" id="customerName" name="customerName" required autocomplete="off" placeholder="First Name">
-                            <div class="invalid-feedback">
-                              Valid Customer Name is required.
-                            </div>
-                          </div>
+  <div class="container-fluid scroll">
+    <div class="row dashboard">
+      <%- include("../partials/SidebarMenu"); -%>
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 transition-fade" id="swup">
+          <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Add a new <i><strong>Customer</strong></i></h1>
+            <i class="fa-solid fa-user-plus" style="font-size: 2rem;"></i>
+          </div>
+          <form
+          action="/customer/new"
+          method="post"
+          class="needs-validation"
+          novalidate
+          >
+            <div class="row g-3">
 
-                          <div class="col-sm-6">
-                            <label for="tel" class="form-label">Mobile Number</label>
-                            <input type="tel" class="form-control" id="customerNo" name="customerNo" required  autocomplete="off" pattern="[0-9]{10}" placeholder="123-456-7890">
-                            <div class="invalid-feedback">
-                              Valid mobile number is required.
-                            </div>
-                          </div>
+              <div class="col-sm-6">
+                <label for="customerName" class="form-label">Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="customerName"
+                  name="customerName"
+                  autocomplete="off"
+                  placeholder="First Name"
+                  pattern="[A-Z a-z]{1,32}"
+                  required
+                />
+                <div class="invalid-feedback">
+                  Valid Customer Name is required.
+                </div>
+              </div>
 
-                          <div class="col-12">
-                            <label for="email" class="form-label">Customer Email</label>
-                            <input type="email" class="form-control" id="customerEmail" placeholder="you@example.com"  autocomplete="off" name="customerEmail" required>
-                            <div class="invalid-feedback">
-                              Please enter a valid email address.
-                            </div>
-                          </div>
-                        
-                        </div>
-                        <hr class="my-4">
-                        <button class="w-100 btn btn-danger btn-lg" type="submit">Create a New Entry</button>
-                      </form>
-                      <%if(status) {%>
-                        <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: 20px;">
-                          <h4 class="alert-heading">Well done</h4>
-                          <hr>
-                          <p>Head back to <a href="/customer" class="alert-link">Crew Page</a></p>
-                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                      <% } if(error) { %>
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 20px;">
-                          <h4 class="alert-heading">Uh-Oh</h4>
-                          <hr>
-                          <p>Couldn't Add the Data, Review the Details and <strong>Try again</strong></p>
-                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                        <% } %>
-        </div>
-        </main>
-    </div>
-    <%- include("../partials/footer"); -%>
+              <div class="col-sm-6">
+                <label for="customerNo" class="form-label">Mobile Number</label>
+                <input type="tel" class="form-control" id="customerNo" name="customerNo" autocomplete="off"
+                  placeholder="123-456-7890" pattern="[0-9]{10}" required>
+                <div class="invalid-feedback">
+                  Valid mobile number is required.
+                </div>
+              </div>
+
+              <div class="col-12">
+                <label for="customerEmail" class="form-label">Customer Email</label>
+                <input type="email" class="form-control" id="customerEmail" placeholder="you@example.com"
+                  autocomplete="off" name="customerEmail" required>
+                <div class="invalid-feedback">
+                  Please enter a valid email address.
+                </div>
+              </div>
+
+            </div>
+            <hr class="my-4">
+            <button class="w-100 btn btn-danger btn-lg" type="submit">Create a New Entry</button>
+          </form>
+          <%if(status) {%>
+            <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: 20px;">
+              <h4 class="alert-heading">Well done</h4>
+              <hr>
+              <p>Head back to <a href="/customer" class="alert-link">Crew Page</a></p>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <% } if(error) { %>
+              <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 20px;">
+                <h4 class="alert-heading">Uh-Oh</h4>
+                <hr>
+                <p>Couldn't Add the Data, Review the Details and <strong>Try again</strong></p>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+              <% } %>
+    </main>
+  </div>
+  <%- include("../partials/footer"); -%>

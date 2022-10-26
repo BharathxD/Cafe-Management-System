@@ -47,12 +47,12 @@
                 novalidate>
                 <div class="customer-container">
                   <div class="isRegistered">
-                    <h3 class="sub-heading-order">Already Registered?</h3>
+                    <h3 for="customerContactNumber" class="sub-heading-order">Already Registered?</h3>
                     <div>
                       <input
                         type="tel"
                         class="form-control"
-                        id="contact"
+                        id="customerContactNumber"
                         name="getUserContact"
                         autocomplete="off"
                         placeholder="Contact Number"
@@ -71,7 +71,7 @@
                   </div>
                   <hr>
                   <div>
-                    <h3 class="form-label sub-heading-order"
+                    <h3 for="getPaymentMethod" class="form-label sub-heading-order"
                       >Select Payment Method</h3
                     >
                     <select
@@ -91,7 +91,7 @@
                   <div class="or-bt">
                   <em>or</em>
                   </div>
-                  <button onclick="this.form.submit()" class="btn btn-warning pay-btn">Proceed &amp; Pay</button>
+                  <button type="submit" class="btn btn-warning pay-btn">Proceed &amp; Pay</button>
                 </div>
               </form>
                 </div>
@@ -110,7 +110,7 @@
                     <tbody class="tbody">
                       <% rows.forEach(element => { %>
                         <tr class="dashboard-tr">
-                          <td><i>#<%=element.order_id%></i></td>
+                          <td><i>ORDN-<%=element.order_id%></i></td>
                           <td><i><%=element.order_name%></i></td>
                           <td><i><%=element.order_chef%></i></td>
                           <td><i><i class="bi bi-currency-rupee"></i><%=element.order_price%></i></td>

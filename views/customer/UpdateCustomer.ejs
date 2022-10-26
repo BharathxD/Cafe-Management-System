@@ -9,27 +9,27 @@
                         class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                         <h1 class="h2">Modify The Data</h1>
                     </div>
-                    <form class="needs-validation" action="/customer/edituser/<%=rows[0].customer_id%>" method="post">
+                    <form class="needs-validation" action="/customer/edituser/<%=rows[0].customer_id%>" method="post" novalidate>
                         <div class="row g-3">
 
                           <div class="col-sm-6">
-                            <label for="text" class="form-label">Customer Name</label>
-                            <input type="text" class="form-control" id="customerName" name="customerName" required autocomplete="off" placeholder="First Name" value="<%=rows[0].customer_name%>">
+                            <label for="customerName" class="form-label">Customer Name</label>
+                            <input type="text" class="form-control" id="customerName" name="customerName" required autocomplete="off" placeholder="First Name" pattern="[A-Z a-z]{1,32}" value="<%=rows[0].customer_name%>">
                             <div class="invalid-feedback">
                               Valid Customer Name is required.
                             </div>
                           </div>
 
                           <div class="col-sm-6">
-                            <label for="tel" class="form-label">Mobile Number</label>
-                            <input type="tel" class="form-control" id="customerNo" name="customerNo" required  autocomplete="off" pattern="[0-9]{10}" placeholder="123-456-7890" value="<%=rows[0].customer_no%>">
+                            <label for="customerNo" class="form-label">Mobile Number</label>
+                            <input type="tel" class="form-control" id="customerNo" name="customerNo" required  autocomplete="off" placeholder="123-456-7890" pattern="[0-9]{10}" value="<%=rows[0].customer_no%>">
                             <div class="invalid-feedback">
                               Valid mobile number is required.
                             </div>
                           </div>
 
                           <div class="col-12">
-                            <label for="email" class="form-label">Customer Email</label>
+                            <label for="customerEmail" class="form-label">Customer Email</label>
                             <input type="email" class="form-control" id="customerEmail" placeholder="you@example.com"  autocomplete="off" name="customerEmail" value="<%=rows[0].customer_email%>" required>
                             <div class="invalid-feedback">
                               Please enter a valid email address.

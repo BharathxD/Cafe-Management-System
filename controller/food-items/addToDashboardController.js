@@ -2,8 +2,11 @@ const DB = require('../../config/getConnection');
 
 exports.onSubmit = (req, res) => {
   DB.query(
-      `INSERT INTO order_table SET order_name = '${itemName}', order_price = '${itemPrice}', order_chef = '${req.body.selectedChefName}', order_prescription = '${req.body.orderPrescription}'`,
-      null,
+      `INSERT INTO order_table SET order_name = ?, order_price = ?, order_chef = ?, order_prescription = ?`,
+      [itemName,
+        itemPrice,
+        req.body.selectedChefName,
+        req.body.orderPrescription],
       (rows, err) => {
         if (!err) {
           res.redirect('/');

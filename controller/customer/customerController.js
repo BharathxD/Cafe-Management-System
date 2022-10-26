@@ -14,8 +14,8 @@ exports.onView = (req, res) => {
 exports.onSearch = (req, res) => {
   let searchValue = req.body.getSearchResults;
   DB.query(
-    `SELECT * FROM customer WHERE customer_name LIKE '${searchValue}' OR customer_email LIKE '${searchValue}' OR customer_no LIKE '${searchValue}'`,
-    null,
+    `SELECT * FROM customer WHERE customer_name LIKE ? OR customer_email LIKE ? OR customer_no LIKE ?`,
+    ['%'+searchValue+'%', '%'+searchValue+'%', '%'+searchValue+'%'],
     (rows, err) => {
       !err
         ? res.render("Customer/ViewCustomer", {

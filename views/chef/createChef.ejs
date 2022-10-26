@@ -15,7 +15,7 @@
         </h1>
         <i class="fa-solid fa-kitchen-set" style="font-size: 2rem"></i>
       </div>
-      <form class="needs-validation" action="/newchef" method="post">
+      <form class="needs-validation" action="/newchef" method="post" novalidate>
         <div class="row g-3">
           <div class="col-sm-6">
             <label for="firstName" class="form-label">Chef Name</label>
@@ -26,19 +26,20 @@
               name="chefName"
               required
               autocomplete="off"
+              pattern="[A-Z a-z]{1,32}"
               placeholder="Chef Name"
             />
             <div class="invalid-feedback">Valid chef Name is required.</div>
           </div>
 
           <div class="col-sm-6">
-            <label for="lastName" class="form-label"
+            <label for="email" class="form-label"
               >Chef Contact (Email Address)
             </label>
             <input
               type="text"
               class="form-control"
-              id="lastName"
+              id="email"
               name="chefContact"
               required
               autocomplete="off"
@@ -50,13 +51,13 @@
           </div>
 
           <div class="col-sm-12">
-            <label for="lastName" class="form-label"
+            <label for="mobile" class="form-label"
               >Chef Contact (Mobile Number)</label
             >
             <input
               type="tel"
               class="form-control"
-              id="lastName"
+              id="mobile"
               name="chefNumber"
               required
               autocomplete="off"
@@ -71,7 +72,7 @@
             <input
               type="text"
               class="form-control"
-              id="text"
+              id="email"
               placeholder="Assistant Chef"
               autocomplete="off"
               name="chefBrigade"
