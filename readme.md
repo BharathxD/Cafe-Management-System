@@ -18,6 +18,14 @@ Go to the project directory
   cd Cafe-Management-System
 ```
 
+Execute Setup 
+
+```bash
+  ./setup.sh
+```
+
+#### or
+
 Install dependencies
 
 ```bash
