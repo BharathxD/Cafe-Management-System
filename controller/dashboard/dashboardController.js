@@ -23,13 +23,14 @@ exports.view = (req, res) => {
 exports.find = (req, res) => {
   const { getUserPaymentMethod, getOrderTotal, getUserContact } = req.body;
   DB.query(
-    `INSERT INTO invoice(payment_method, order_total, customer_id) values(?, ?, (SELECT customer_id FROM customer WHERE customer_no = ?)
+    `INSERT INTO invoice(payment_method, order_total, customer_id) values(?, ?, (SELECT customer_id FROM customer WHERE customer_no = ?))
   `,
     [getUserPaymentMethod, getOrderTotal, getUserContact],
     (rows, err) => {
       if (err) {
-        console.log(err);
+        req.flash('error', 'Uh-oh, Please check your Mobile number or Try again 😥')
       }
+      req.flash('success', `Your order has been successfully placed 😄`)
       res.redirect("/");
     }
   );

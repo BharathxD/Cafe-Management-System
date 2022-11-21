@@ -24,8 +24,10 @@ exports.onEdit = (req, res) => {
     [chefName, chefContact, chefNumber, chefBrigade, chefID],
     (rows, err) => {
       if (!err) {
+        req.flash('success', `${chefName} record has been Updated Successfully 😄`)
         res.redirect("/chefs");
       } else {
+        req.flash('error', `${chefName} record can't be Updated at the moment 😥`)
         res.redirect("/chefs");
         console.log(err);
       }

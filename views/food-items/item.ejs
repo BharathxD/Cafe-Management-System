@@ -45,6 +45,12 @@
                   <% }); %>
                 </tbody>
               </table>
+              <%if(error && error.length> 0){%>
+                <div id="toast-bar" style="background-color: rgba(255, 0, 0, 0.223);"><%= error %></div>
+              <%}%>
+              <%if(success && success.length> 0){%>
+                <div id="toast-bar"><%= success %></div>
+              <%}%>
     </div>
     </main>
   </div>

@@ -12,6 +12,10 @@
                     <form class="needs-validation" action="/editchef/<%=rows[0].chef_id%>" method="post" novalidate>
                         <div class="row g-3">
 
+                          <div class="col-sm-6" style="display: none;">
+                            <input type="text" id="disabledTextInput" name="chefID" class="form-control" value="<%=rows[0].chef_id%>" placeholder="<%=rows[0].chef_id%>">
+                          </div>
+
                           <div class="col-sm-6">
                             <label for="chefName" class="form-label">Chef Name</label>
                             <input type="text" value="<%=rows[0].chef_name%>" class="form-control" id="chefName" name="chefName" required  autocomplete="off">

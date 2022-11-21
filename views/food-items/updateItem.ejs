@@ -12,6 +12,11 @@
           <form class="needs-validation" action="/edititem/<%=rows[0].item_id%>" method="post" novalidate>
             <div class="row g-3">
 
+              <div class="col-sm-6" style="display: none;">
+                <input type="text" id="disabledTextInput" name="itemID" class="form-control"
+                  value="<%=rows[0].item_id%>" placeholder="<%=rows[0].item_id%>">
+              </div>
+
               <div class="col-sm-6">
                 <label for="itemName" class="form-label">Item Name:</label>
                 <input type="text" class="form-control" id="itemName" name="itemName" required autocomplete="off"
@@ -26,18 +31,18 @@
                 <select class="form-select form-select mb-3" aria-label=".form-select-lg example"
                   name="itemAvailability" id="itemAvailability">
                   <option value="Available" <% if(rows[0].item_availability=='Available' ) {%> selected <% } %>>
-                    Available
+                      Available
                   </option>
                   <option <% if(rows[0].item_availability=='Unavailable' ) {%> selected <% } %>>
-                    Unavailable
+                      Unavailable
                   </option>
                 </select>
               </div>
 
               <div class="col-sm-6">
                 <label for="itemPrice" class="form-label">Item Price:</label>
-                <input type="number" class="form-control" id="itemPrice" name="itemPrice" required
-                  autocomplete="off" value="<%=rows[0].item_price%>">
+                <input type="number" class="form-control" id="itemPrice" name="itemPrice" required autocomplete="off"
+                  value="<%=rows[0].item_price%>">
                 <div class="invalid-feedback">
                   Please enter a valid Amount.
                 </div>
@@ -45,13 +50,8 @@
 
               <div class="col-sm-6">
                 <label for="itemCategory" class="form-label">Item Category:</label>
-                <select
-                  class="form-select form-select mb-3"
-                  aria-label=".form-select-lg example"
-                  name="itemCategory"
-                  id="itemCategory"
-                  required
-                >
+                <select class="form-select form-select mb-3" aria-label=".form-select-lg example" name="itemCategory"
+                  id="itemCategory" required>
                   <option value="Food" selected>Food</option>
                   <option value="Desserts">Desserts</option>
                   <option value="Beverages">Beverages</option>
@@ -70,21 +70,7 @@
             <hr class="my-4">
             <button class="w-100 btn btn-danger btn-lg" type="submit">Create a New Entry</button>
           </form>
-          <%if(status) {%>
-            <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: 20px;">
-              <h4 class="alert-heading">Updation Completed</h4>
-              <hr>
-              <p>Head back to <a href="/chefs" class="alert-link">Chef-de-Cuisine Page</a></p>
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-            <% } if(error) { %>
-              <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 20px;">
-                <h4 class="alert-heading">Uh-Oh</h4>
-                <hr>
-                <p>Couldn't Edit the Data, Review the Details and <strong>Try again</strong></p>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-              </div>
-              <% } %>
+          <%- include("../partials/ErrorToast"); -%>
     </div>
     </main>
   </div>

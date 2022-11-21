@@ -25,15 +25,15 @@ exports.onEdit = (req, res) => {
     [itemName, itemAvailability, itemPrice, itemCategory, itemLDescription, itemID],
     (rows, err) => {
       if (!err) {
+        req.flash('success', `${itemName} has been Updated Successfully 😄`)
         res.redirect("/item");
       } else {
+        req.flash('error', `${itemName} can't be Updated at the moment 😥`)
+        console.log(err);
         res.render("food-items/updateItem", {
-          status: false,
-          error: true,
           getSearchResults: "itemSearchResults",
           rows: rows,
         });
-        console.log(err);
       }
     }
   );

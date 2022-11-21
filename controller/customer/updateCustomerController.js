@@ -20,11 +20,11 @@ exports.onEdit = (req, res) => {
   DB.query('UPDATE customer SET customer_name = ?, customer_email = ?, customer_no = ? WHERE customer_id = ?',[customerName, customerEmail, customerNo, req.params.id],
     (rows, err) => {
       if (!err) {
+        req.flash('success', `${customerName}'s record has been Updated Successfully 😄`)
         res.redirect('/customer');
       } else {
+        req.flash('error', `${customerName}'s record can't be Updated at the moment 😥`)
         res.render('Customer/UpdateCustomer', {
-          status: false,
-          error: true,
           getSearchResults: 'userSearchResults'
         });
         console.log(err);
