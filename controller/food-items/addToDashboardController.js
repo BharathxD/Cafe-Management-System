@@ -9,6 +9,7 @@ exports.onSubmit = (req, res) => {
         req.body.orderPrescription],
       (rows, err) => {
         if (!err) {
+          req.flash('success', `${itemName} has been added to the Dashboard`)
           res.redirect('/');
         } else {
           res.render('food-items/createItem', {

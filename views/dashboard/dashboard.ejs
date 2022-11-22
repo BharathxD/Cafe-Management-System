@@ -1,152 +1,151 @@
 <%- include("../partials/NavbarDashboard"); -%>
 
 
-  <div class="container-fluid scroll">
-    <div class="row dashboard">
-      <%- include("../partials/sidebarMenu"); -%>
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 transition-fade">
-          <div
-            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2"><strong>Dashboard</strong> <sup class="total-number">
-                <%=total%>
-              </sup></h1>
-            <div class="btn-toolbar mb-2 mb-md-0">
-              <div class="btn-group me-2">
-                <a type="button" href="/get-csv" onclick="setTimeout(()=>{window.location.reload()}, 1000);"
-                  class="btn btn-sm btn-outline-secondary btn-outline-dark export-btn">Export</a>
-              </div>
-              <div class="subtotal bg-danger">Subtotal :
-                <i class="fa-solid fa-indian-rupee-sign" style="font-size: 0.9rem;"></i>
-                <%=total%>
-              </div>
+<div class="container-fluid scroll">
+  <div class="row dashboard">
+    <%- include("../partials/sidebarMenu"); -%>
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 transition-fade">
+      <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2"><strong>Dashboard</strong> <sup class="total-number">
+            <%=total%>
+          </sup></h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+          <div class="btn-group me-2">
+            <a type="button" href="/get-csv" onclick="setTimeout(()=>{window.location.reload()}, 1000);"
+              class="btn btn-sm btn-outline-secondary btn-outline-dark export-btn">Export</a>
+          </div>
+          <div class="subtotal bg-danger">Subtotal :
+            <i class="fa-solid fa-indian-rupee-sign" style="font-size: 0.9rem;"></i>
+            <%=total%>
+          </div>
+        </div>
+      </div>
+      <%if (bill) {%>
+      <div class="place-order-container">
+        <div class="payment-container">
+          <div class="bottom-subtotal">
+            <div class="container">
+              <p>Net Total</p>
+              <h1>
+                <%=actualTotal%><i class="bi bi-currency-rupee percent" style="font-size: 1.150rem;margin: 0;"></i>
+              </h1>
+            </div>
+            <div class="container">
+              <p>CGST 2.5<span class="percent">%</span> </p>
+              <h3>
+                <%=parseFloat(afterGST).toFixed(2)%><i class="bi bi-currency-rupee percent"
+                  style="font-size: 1.150rem;margin: 0;"></i>
+              </h3>
+            </div>
+            <div class="container">
+              <p>SGST 2.5<span class="percent">%</span> </p>
+              <h3>
+                <%=parseFloat(afterGST).toFixed(2)%><i class="bi bi-currency-rupee percent"
+                  style="font-size: 1.150rem;margin: 0;"></i>
+              </h3>
+            </div>
+            <div class="container">
+              <p>Grand Total </strong></p>
+              <h3>
+                <%=parseFloat(withGST).toFixed(2)%><i class="bi bi-currency-rupee percent"
+                  style="font-size: 1.150rem;margin: 0;"></i>
+              </h3>
+            </div>
+            <div class="container">
+              <p>Rounded To </strong></p>
+              <h1>
+                <%=Math.round(withRoundedTotal)%><i class="bi bi-currency-rupee percent"
+                  style="font-size: 1.150rem;margin: 0;"></i>
+              </h1>
             </div>
           </div>
-          <%if (bill) {%>
-            <div class="place-order-container">
-              <div class="payment-container">
-                <div class="bottom-subtotal">
-                  <div class="container">
-                    <p>Net Total</p>
-                    <h1>
-                      <%=actualTotal%><i class="bi bi-currency-rupee percent"
-                          style="font-size: 1.150rem;margin: 0;"></i>
-                    </h1>
-                  </div>
-                  <div class="container">
-                    <p>CGST 2.5<span class="percent">%</span> </p>
-                    <h3>
-                      <%=parseFloat(afterGST).toFixed(2)%><i class="bi bi-currency-rupee percent"
-                          style="font-size: 1.150rem;margin: 0;"></i>
-                    </h3>
-                  </div>
-                  <div class="container">
-                    <p>SGST 2.5<span class="percent">%</span> </p>
-                    <h3>
-                      <%=parseFloat(afterGST).toFixed(2)%><i class="bi bi-currency-rupee percent"
-                          style="font-size: 1.150rem;margin: 0;"></i>
-                    </h3>
-                  </div>
-                  <div class="container">
-                    <p>Grand Total </strong></p>
-                    <h3>
-                      <%=parseFloat(withGST).toFixed(2)%><i class="bi bi-currency-rupee percent"
-                          style="font-size: 1.150rem;margin: 0;"></i>
-                    </h3>
-                  </div>
-                  <div class="container">
-                    <p>Rounded To </strong></p>
-                    <h1>
-                      <%=Math.round(withRoundedTotal)%><i class="bi bi-currency-rupee percent"
-                          style="font-size: 1.150rem;margin: 0;"></i>
-                    </h1>
-                  </div>
-                </div>
+        </div>
+        <form action="/" method="post" class="orders-form needs-validation" novalidate>
+          <div class="customer-container">
+            <div class="isRegistered">
+              <h3 for="customerContactNumber" class="sub-heading-order">Already Registered?</h3>
+              <div>
+                <input type="tel" class="form-control" id="customerContactNumber" name="getUserContact"
+                  autocomplete="off" placeholder="Contact Number" required />
+                <div class="invalid-feedback">Valid Number is required.</div>
               </div>
-              <form action="/" method="post" class="orders-form needs-validation" novalidate>
-                <div class="customer-container">
-                  <div class="isRegistered">
-                    <h3 for="customerContactNumber" class="sub-heading-order">Already Registered?</h3>
-                    <div>
-                      <input type="tel" class="form-control" id="customerContactNumber" name="getUserContact"
-                        autocomplete="off" placeholder="Contact Number" required />
-                      <div class="invalid-feedback">Valid Number is required.</div>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="registered">
-                    <h3 class="sub-heading-order">Haven't Registered Yet?</h3>
-                    <div class="order-btns" style="grid-template-columns:1fr 1fr;">
-                      <a href="/customer/new" type="button" class="btn btn-danger" style="width: 100%;">Add A New
-                        Customer</a>
-                      <a href="/customer" type="button" class="btn btn-warning" style="width: 100%;">Find Customer</a>
-                    </div>
-                  </div>
-                  <hr>
-                  <div>
-                    <h3 for="getPaymentMethod" class="form-label sub-heading-order">Select Payment Method</h3>
-                    <select class="form-select" name="getUserPaymentMethod" id="getPaymentMethod">
-                      <option value="Cash">Cash</option>
-                      <option value="Debit Card">Debit Card</option>
-                      <option value="Credit Card">Credit Card</option>
-                      <option value="UPI">UPI</option>
-                    </select>
-                    <input type="text" name="getOrderTotal" value="<%=total%>" style="display: none;" />
-                  </div>
-                  <div class="order-btns">
-                    <a class="btn btn-danger pay-btn add-new-item" type="button" href="/item">Add New Item</a>
-                    <div class="or-bt">
-                      <em>or</em>
-                    </div>
-                    <button type="submit" class="btn btn-warning pay-btn">Proceed &amp; Pay</button>
-                  </div>
-              </form>
             </div>
-    </div>
-    <hr>
-    <table>
-      <thead class="dashboard-thead">
-        <tr>
-          <th>Order Number</th>
-          <th>Item Name</th>
-          <th>Cook</th>
-          <th>Price</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody class="tbody">
-        <% rows.forEach(element=> { %>
-          <tr class="dashboard-tr">
-            <td><i>ORDN-<%=element.order_id%></i></td>
-            <td><i>
-                <%=element.order_name%>
-              </i></td>
-            <td><i>
-                <%=element.order_chef%>
-              </i></td>
-            <td><i><i class="bi bi-currency-rupee"></i>
-                <%=element.order_price%>
-              </i></td>
-            <td>
-              <a href="/readorders/<%=element.order_id%>" type="button" class="btn btn-dark"><i
-                  class="bi bi-eye-fill"></i></a>
-              <a href="/delete-dashboard-item/<%=element.order_id%>"
-                onClick="setTimout(()=>{window.location.reload();},2000)" type="button" class="btn btn-dark"
-                style="background-color: #fc364d; color: #f4f4f4"><i class="bi bi-x-circle-fill"></i></a>
-            </td>
-          </tr>
-          <% }); %>
-      </tbody>
-    </table>
-    <% } else { %>
-      <div class="order-status-container">
-      <h5>We do not have any active orders at the moment, click <a href="/item" class="nav-ul"
-          style="color: #ff495e;">here</a> to place an order</h5>
+            <hr>
+            <div class="registered">
+              <h3 class="sub-heading-order">Haven't Registered Yet?</h3>
+              <div class="order-btns" style="grid-template-columns:1fr 1fr;">
+                <a href="/customer/new" type="button" class="btn btn-danger" style="width: 100%;">Add A New
+                  Customer</a>
+                <a href="/customer" type="button" class="btn btn-warning" style="width: 100%;">Find Customer</a>
+              </div>
+            </div>
+            <hr>
+            <div>
+              <h3 for="getPaymentMethod" class="form-label sub-heading-order">Select Payment Method</h3>
+              <select class="form-select" name="getUserPaymentMethod" id="getPaymentMethod">
+                <option value="Cash">Cash</option>
+                <option value="Debit Card">Debit Card</option>
+                <option value="Credit Card">Credit Card</option>
+                <option value="UPI">UPI</option>
+              </select>
+              <input type="text" name="getOrderTotal" value="<%=total%>" style="display: none;" />
+            </div>
+            <div class="order-btns">
+              <a class="btn btn-danger pay-btn add-new-item" type="button" href="/item">Add New Item</a>
+              <div class="or-bt">
+                <em>or</em>
+              </div>
+              <button type="submit" class="btn btn-warning pay-btn">Proceed &amp; Pay</button>
+            </div>
+        </form>
       </div>
-      <% } %>
   </div>
-  <%- include("../partials/ErrorToast"); -%>
-    <!-- <div id="toast-bar" class="show">Lorem, ipsum dolor sit amet consectetur.</div> -->
-  </main>
- </div>
+  <hr>
+  <table>
+    <thead class="dashboard-thead">
+      <tr>
+        <th>Order Number</th>
+        <th>Item Name</th>
+        <th>Cook</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody class="tbody">
+      <% rows.forEach(element=> { %>
+      <tr class="dashboard-tr">
+        <td><i>ORDN-<%=element.order_id%></i></td>
+        <td><i>
+            <%=element.order_name%>
+          </i></td>
+        <td><i>
+            <%=element.order_chef%>
+          </i></td>
+        <td><i><i class="bi bi-currency-rupee"></i>
+            <%=element.order_price%>
+          </i></td>
+        <td>
+          <a href="/readorders/<%=element.order_id%>" type="button" class="btn btn-dark"><i
+              class="bi bi-eye-fill"></i></a>
+          <a href="/delete-dashboard-item/<%=element.order_id%>"
+            onClick="setTimout(()=>{window.location.reload();},2000)" type="button" class="btn btn-dark"
+            style="background-color: #fc364d; color: #f4f4f4"><i class="bi bi-x-circle-fill"></i></a>
+        </td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  <% } else { %>
+  <div class="order-status-container">
+    <h5>We do not have any active orders at the moment, click <a href="/item" class="nav-ul"
+        style="color: #ff495e;">here</a> to place an order</h5>
+  </div>
+  <% } %>
+</div>
+<%- include("../partials/ErrorToast"); -%>
+<!-- <div id="toast-bar" class="show">Lorem, ipsum dolor sit amet consectetur.</div> -->
+</main>
+</div>
 
 <%- include("../partials/footer"); -%>

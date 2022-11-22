@@ -3,13 +3,9 @@
 <div class="container-fluid scroll">
   <div class="row dashboard">
     <%- include("../partials/SidebarMenu"); -%>
-    <main
-      class="col-md-9 ms-sm-auto col-lg-10 px-md-4 transition-fade"
-      id="swup"
-    >
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 transition-fade" id="swup">
       <div
-        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
-      >
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">
           Add a new <i><strong>Chef</strong></i>
         </h1>
@@ -19,65 +15,32 @@
         <div class="row g-3">
           <div class="col-sm-6">
             <label for="firstName" class="form-label">Chef Name</label>
-            <input
-              type="text"
-              class="form-control"
-              id="firstName"
-              name="chefName"
-              required
-              autocomplete="off"
-              pattern="[A-Z a-z]{1,32}"
-              placeholder="Chef Name"
-            />
+            <input type="text" class="form-control" id="firstName" name="chefName" required autocomplete="off"
+              pattern="[A-Z a-z]{1,32}" placeholder="Chef Name" />
             <div class="invalid-feedback">Valid chef Name is required.</div>
           </div>
 
           <div class="col-sm-6">
-            <label for="email" class="form-label"
-              >Chef Contact (Email Address)
+            <label for="email" class="form-label">Chef Contact (Email Address)
             </label>
-            <input
-              type="text"
-              class="form-control"
-              id="email"
-              name="chefContact"
-              required
-              autocomplete="off"
-              placeholder="chef@example.com"
-            />
+            <input type="text" class="form-control" id="email" name="chefContact" required autocomplete="off"
+              placeholder="chef@example.com" />
             <div class="invalid-feedback">
               Valid Chef Contact Address is required.
             </div>
           </div>
 
           <div class="col-sm-12">
-            <label for="mobile" class="form-label"
-              >Chef Contact (Mobile Number)</label
-            >
-            <input
-              type="tel"
-              class="form-control"
-              id="mobile"
-              name="chefNumber"
-              required
-              autocomplete="off"
-              placeholder="123-456-7891"
-              pattern="[0-9]{10}"
-            />
+            <label for="mobile" class="form-label">Chef Contact (Mobile Number)</label>
+            <input type="tel" class="form-control" id="mobile" name="chefNumber" required autocomplete="off"
+              placeholder="123-456-7891" pattern="[0-9]{10}" />
             <div class="invalid-feedback">Valid Mobile Number is required.</div>
           </div>
 
           <div class="col-12">
             <label for="email" class="form-label">Brigade Level</label>
-            <input
-              type="text"
-              class="form-control"
-              id="email"
-              placeholder="Assistant Chef"
-              autocomplete="off"
-              name="chefBrigade"
-              required
-            />
+            <input type="text" class="form-control" id="email" placeholder="Assistant Chef" autocomplete="off"
+              name="chefBrigade" required />
             <div class="invalid-feedback">
               Please enter a valid Brigade Level.
             </div>
@@ -89,42 +52,24 @@
         </button>
       </form>
       <%if(status) {%>
-      <div
-        class="alert alert-success alert-dismissible fade show"
-        role="alert"
-        style="margin-top: 20px"
-      >
+      <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: 20px">
         <h4 class="alert-heading">Well done</h4>
         <hr />
         <p>
           Head back to
           <a href="/chefs" class="alert-link">Chef-de-Cuisine Page</a>
         </p>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="alert"
-          aria-label="Close"
-        ></button>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
       <% } if(error) { %>
-      <div
-        class="alert alert-danger alert-dismissible fade show"
-        role="alert"
-        style="margin-top: 20px"
-      >
+      <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 20px">
         <h4 class="alert-heading">Uh-Oh</h4>
         <hr />
         <p>
           Couldn't Add the Data, Review the Details and
           <strong>Try again</strong>
         </p>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="alert"
-          aria-label="Close"
-        ></button>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
       <% } %>
     </main>

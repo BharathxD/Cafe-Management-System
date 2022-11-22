@@ -1,84 +1,77 @@
 <%- include("../partials/NavbarDashboard"); -%>
 
 
-    <div class="container-fluid scroll">
-        <div class="row dashboard">
-            <%- include("../partials/sidebarMenu"); -%>
-                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 transition-fade" id="swup">
-                    <div
-                        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h1 class="h2">Modify The Data</h1>
-                    </div>
-                    <form class="needs-validation" action="/editchef/<%=rows[0].chef_id%>" method="post" novalidate>
-                        <div class="row g-3">
+<div class="container-fluid scroll">
+  <div class="row dashboard">
+    <%- include("../partials/sidebarMenu"); -%>
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 transition-fade" id="swup">
+      <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Modify The Data</h1>
+      </div>
+      <form class="needs-validation" action="/editchef/<%=rows[0].chef_id%>" method="post" novalidate>
+        <div class="row g-3">
 
-                          <div class="col-sm-6" style="display: none;">
-                            <input type="text" id="disabledTextInput" name="chefID" class="form-control" value="<%=rows[0].chef_id%>" placeholder="<%=rows[0].chef_id%>">
-                          </div>
+          <div class="col-sm-6" style="display: none;">
+            <input type="text" id="disabledTextInput" name="chefID" class="form-control" value="<%=rows[0].chef_id%>"
+              placeholder="<%=rows[0].chef_id%>">
+          </div>
 
-                          <div class="col-sm-6">
-                            <label for="chefName" class="form-label">Chef Name</label>
-                            <input type="text" value="<%=rows[0].chef_name%>" class="form-control" id="chefName" name="chefName" required  autocomplete="off">
-                            <div class="invalid-feedback">
-                              Valid chef Name is required.
-                            </div>
-                          </div>
-              
-                          <div class="col-sm-6">
-                            <label for="chefEmail" class="form-label">Chef Contact (Email Address) </label>
-                            <input type="tel" value="<%=rows[0].chef_contact%>" class="form-control" id="chefEmail" name="chefContact" required  autocomplete="off" placeholder="chef@example.com">
-                            <div class="invalid-feedback">
-                              Valid Chef Email is required.
-                            </div>
-                          </div>
+          <div class="col-sm-6">
+            <label for="chefName" class="form-label">Chef Name</label>
+            <input type="text" value="<%=rows[0].chef_name%>" class="form-control" id="chefName" name="chefName"
+              required autocomplete="off">
+            <div class="invalid-feedback">
+              Valid chef Name is required.
+            </div>
+          </div>
 
-                          <div class="col-sm-12">
-                            <label for="chefNumber" class="form-label"
-                              >Chef Contact (Mobile Number)</label
-                            >
-                            <input
-                              type="tel"
-                              class="form-control"
-                              id="chefNumber"
-                              name="chefNumber"
-                              value="<%=rows[0].chef_number%>"
-                              required
-                              autocomplete="off"
-                              placeholder="123-456-7891" 
-                              pattern="[0-9]{10}"
-                            />
-                            <div class="invalid-feedback">Valid Mobile Number is required.</div>
-                          </div>
-                          
+          <div class="col-sm-6">
+            <label for="chefEmail" class="form-label">Chef Contact (Email Address) </label>
+            <input type="tel" value="<%=rows[0].chef_contact%>" class="form-control" id="chefEmail" name="chefContact"
+              required autocomplete="off" placeholder="chef@example.com">
+            <div class="invalid-feedback">
+              Valid Chef Email is required.
+            </div>
+          </div>
 
-                          <div class="col-12">
-                            <label for="chefBrigade" class="form-label">Brigade Level</label>
-                            <input type="text"value="<%=rows[0].chef_brigade%>"   class="form-control" id="chefBrigade" placeholder="Assistant Chef"  autocomplete="off" name="chefBrigade" required>
-                            <div class="invalid-feedback">
-                              Please enter a valid Brigade Level.
-                            </div>
-                          </div>
-                        
-                        </div>
-                        <hr class="my-4">
-                        <button class="w-100 btn btn-danger btn-lg" type="submit">Modify Data</button>
-                      </form>
-                      <%if(status) {%>
-                        <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: 20px;">
-                          <h4 class="alert-heading">Updation Completed</h4>
-                          <hr>
-                          <p>Head back to <a href="/chefs" class="alert-link">Chef-de-Cuisine Page</a></p>
-                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                      <% } if(error) { %>
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 20px;">
-                          <h4 class="alert-heading">Uh-Oh</h4>
-                          <hr>
-                          <p>Couldn't Edit the Data, Review the Details and <strong>Try again</strong></p>
-                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                        <% } %>
+          <div class="col-sm-12">
+            <label for="chefNumber" class="form-label">Chef Contact (Mobile Number)</label>
+            <input type="tel" class="form-control" id="chefNumber" name="chefNumber" value="<%=rows[0].chef_number%>"
+              required autocomplete="off" placeholder="123-456-7891" pattern="[0-9]{10}" />
+            <div class="invalid-feedback">Valid Mobile Number is required.</div>
+          </div>
+
+
+          <div class="col-12">
+            <label for="chefBrigade" class="form-label">Brigade Level</label>
+            <input type="text" value="<%=rows[0].chef_brigade%>" class="form-control" id="chefBrigade"
+              placeholder="Assistant Chef" autocomplete="off" name="chefBrigade" required>
+            <div class="invalid-feedback">
+              Please enter a valid Brigade Level.
+            </div>
+          </div>
+
         </div>
-        </main>
-    </div>
-    <%- include("../partials/footer"); -%>
+        <hr class="my-4">
+        <button class="w-100 btn btn-danger btn-lg" type="submit">Modify Data</button>
+      </form>
+      <%if(status) {%>
+      <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: 20px;">
+        <h4 class="alert-heading">Updation Completed</h4>
+        <hr>
+        <p>Head back to <a href="/chefs" class="alert-link">Chef-de-Cuisine Page</a></p>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      <% } if(error) { %>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 20px;">
+        <h4 class="alert-heading">Uh-Oh</h4>
+        <hr>
+        <p>Couldn't Edit the Data, Review the Details and <strong>Try again</strong></p>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      <% } %>
+  </div>
+  </main>
+</div>
+<%- include("../partials/footer"); -%>

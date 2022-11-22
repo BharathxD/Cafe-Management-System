@@ -13,6 +13,7 @@ router.use((req, res, next) => {
 });
 
 router.get('/item', itemController.view);
+router.get('/item/:filter', itemController.filter);
 router.post('/item', itemController.find);
 
 router.get('/addtodashboard/:id', addToDashboardController.add);

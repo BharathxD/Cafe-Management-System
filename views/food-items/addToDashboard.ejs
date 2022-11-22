@@ -1,66 +1,68 @@
 <%- include("../partials/NavbarDashboard"); -%>
 
 
-  <div class="container-fluid scroll">
-    <div class="row dashboard">
-      <%- include("../partials/sidebarMenu"); -%>
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 transition-fade" id="swup">
-         
-          <div
-            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2"><i><strong>Checkout Page</strong></i></h1>
-            <i class="bi bi-egg-fried" style="font-size: 2rem;"></i>
+<div class="container-fluid scroll">
+  <div class="row dashboard">
+    <%- include("../partials/sidebarMenu"); -%>
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 transition-fade" id="swup">
+
+      <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2"><i><strong>Checkout Page</strong></i></h1>
+        <i class="bi bi-egg-fried" style="font-size: 2rem;"></i>
+      </div>
+      <form class="needs-validation" action="/addtodashboard" method="post" novalidate>
+        <div class="order-container">
+          <div class="item-name">
+            <label class="form-label">Item Selected:</label>
+            <h1 value="<%=rows[0].item_name%>" id="selectedItemName"><%=rows[0].item_name%></h1>
           </div>
-          <form class="needs-validation" action="/addtodashboard" method="post" novalidate>
-            <div class="order-container">
-              <div class="item-name">
-                <label class="form-label">Item Selected:</label>
-                  <h1 value="<%=rows[0].item_name%>" id="selectedItemName"><%=rows[0].item_name%></h1>
-              </div>
 
-              <div class="item-price">
-                <label class="form-label">Item Price:</label>
-                <h1 value="<%=rows[0].item_price%>" id="selectedItemPrice">
-                  <%=rows[0].item_price%><i class="bi bi-currency-rupee" ></i>
-                </h1>
-                </select>
-              </div>
-              
-              <div class="chef-name">
-                <label for="chef-name" class="form-label">Choose The Chef</label>
-                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"  id="chef-name"  name="selectedChefName">
-                  <% rows.forEach(element => { %>
-                    <option value="<%=element.chef_name%>" selected><%=element.chef_name%></option>
-                    <% }) %>
-                </select>
-              </div>
-              
-              <div class="chef-prescription">
-                <label for="chef-prescription" class="form-label">Chef's Prescription</label>
-                <textarea class="form-control" name="orderPrescription" id="chef-prescription" style="height: 100px;" placeholder="Add a Prescription"></textarea>
-              </div>
-            </div>
+          <div class="item-price">
+            <label class="form-label">Item Price:</label>
+            <h1 value="<%=rows[0].item_price%>" id="selectedItemPrice">
+              <%=rows[0].item_price%><i class="bi bi-currency-rupee"></i>
+            </h1>
+            </select>
+          </div>
 
-            <hr class="my-4">
-            <button class="w-100 btn btn-danger btn-lg" type="submit">Place the Order</button>
-          </form>
-          <%if(status) {%>
-            <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: 20px;">
-              <h4 class="alert-heading">Order Placed Successfully</h4>
-              <hr>
-              <p>Order has been placed Successfully and added to the <a href="/" class="alert-link">Dashboard</a></p>
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-            <% } if(error) { %>
-              <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 20px;">
-                <h4 class="alert-heading">Uh-Oh</h4>
-                <hr>
-                <p>Couldn't Add the Data, Review the Details and <strong>Try again</strong></p>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-              </div>
-              <% } %>
+          <div class="chef-name">
+            <label for="chef-name" class="form-label">Choose The Chef</label>
+            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="chef-name"
+              name="selectedChefName">
+              <% rows.forEach(element => { %>
+              <option value="<%=element.chef_name%>" selected><%=element.chef_name%></option>
+              <% }) %>
+            </select>
+          </div>
+
+          <div class="chef-prescription">
+            <label for="chef-prescription" class="form-label">Chef's Prescription</label>
+            <textarea class="form-control" name="orderPrescription" id="chef-prescription" style="height: 100px;"
+              placeholder="Add a Prescription"></textarea>
+          </div>
         </div>
-        <button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>
-    </main>
+
+        <hr class="my-4">
+        <button class="w-100 btn btn-danger btn-lg" type="submit">Place the Order</button>
+      </form>
+      <%if(status) {%>
+      <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: 20px;">
+        <h4 class="alert-heading">Order Placed Successfully</h4>
+        <hr>
+        <p>Order has been placed Successfully and added to the <a href="/" class="alert-link">Dashboard</a></p>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      <% } if(error) { %>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 20px;">
+        <h4 class="alert-heading">Uh-Oh</h4>
+        <hr>
+        <p>Couldn't Add the Data, Review the Details and <strong>Try again</strong></p>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      <% } %>
   </div>
-  <%- include("../partials/footer"); -%>
+  <button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>
+  </main>
+</div>
+<%- include("../partials/footer"); -%>

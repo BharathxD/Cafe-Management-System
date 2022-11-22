@@ -5,7 +5,12 @@ exports.delete = (req, res) => {
     `DELETE FROM chef WHERE chef_id = ?`,
     [req.params.id],
     (rows, err) => {
-      !err ? res.redirect('/chefs') : console.log(err);
+      if (!err) {
+        req.flash('success', `Chef with ID ${req.params.id} has been Sucessfully Deleted ✅`)
+      } else {
+        req.flash('error', `Chef with ID ${req.params.id} Couldn't be Deleted ❌`)
+        console.log(err);
+      }
     }
   );
 };
