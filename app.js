@@ -35,6 +35,8 @@ app.use((req, res, next) => {
   next();
 });
 
+process.setMaxListeners(0)
+
 /* Dashboard Route */
 
 app.use(dashboard);

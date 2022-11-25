@@ -31,7 +31,6 @@ exports.find = (req, res) => {
         req.flash('error', 'Uh-oh, Please check your Mobile number or Try again 😥')
       }
       req.flash('success', `Your order has been successfully placed 😄`)
-      res.redirect("/");
     }
   );
 };
