@@ -35,7 +35,11 @@
             <td>INVID-<%=element.invoice_id%></td>
             <td><%=element.customer_name%></td>
             <td><%=element.customer_no%></td>
-            <td><%=element.customer_email%></td>
+            <td>
+              <a href="mailto:<%=element.customer_email%>" style="color: #000;">
+                <%=element.customer_email%>
+              </a>
+            </td>
             <td><%=element.payment_method%></td>
             <td><%=element.order_total%></td>
             <td>
