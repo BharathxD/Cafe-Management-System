@@ -47,12 +47,10 @@ exports.find = (req, res) => {
     [getUserPaymentMethod, getOrderTotal, getUserContact],
     (rows, err) => {
       if (err) {
-        console.log(err);
         req.flash(
           "error",
           "Uh-oh, Please check your Mobile number or Try again 😥"
         );
-        return;
       }
       req.flash("success", `Your order has been successfully placed 😄`);
       res.redirect("/");

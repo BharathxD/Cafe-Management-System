@@ -609,6 +609,7 @@ table tr:first-child th:last-child {
 .dashboard-thead tr {
   background-color: #2b2425;
   color: #f4f4f4;
+  font-style: italic;
 }
 
 .dashboard-tr td {

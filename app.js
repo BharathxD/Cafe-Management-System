@@ -1,24 +1,24 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 const flash = require("connect-flash");
 const session = require("express-session");
+const bodyParser = require("body-parser");
+const dotenv = require("dotenv");
 
-const bodyParser = require('body-parser');
-const port = 3000;
-require('dotenv').config();
+dotenv.config();
 
-/* Importing All the Routes */
+const dashboardRouter = require("./routes/dashboard/dashboard.js");
+const csvRouter = require("./routes/csv/csv.js");
+const customerRouter = require("./routes/customer/customer.js");
+const chefRouter = require("./routes/chef/Chef.js");
+const itemRouter = require("./routes/food-items/item.js");
+const invoiceRouter = require("./routes/invoice/invoice.js");
 
-const dashboard = require('./routes/dashboard/dashboard.js');
-const csv = require('./routes/csv/csv.js');
-const customer = require('./routes/customer/customer.js');
-const Chef = require('./routes/chef/Chef.js');
-const item = require('./routes/food-items/item.js');
-const invoice = require('./routes/invoice/invoice.js');
+const PORT = process.env.PORT || 3000;
 
-app.set('view engine', 'ejs');
+app.set("view engine", "ejs");
 app.use(flash());
-app.use(express.static('public'));
+app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   session({
@@ -35,32 +35,13 @@ app.use((req, res, next) => {
   next();
 });
 
-/* Dashboard Route */
+app.use("/", dashboardRouter);
+app.use("/csv", csvRouter);
+app.use("/customer", customerRouter);
+app.use("/chef", chefRouter);
+app.use("/item", itemRouter);
+app.use("/invoice", invoiceRouter);
 
-app.use(dashboard);
-
-/* Csv Route */
-
-app.use(csv);
-
-/* Crew Route */
-
-app.use(customer);
-
-/* Chef Route */
-
-app.use(Chef);
-
-/* Item Route */
-
-app.use(item);
-
-/* Invoice Route */
-
-app.use(invoice);
-
-/* Listening on the port 3000 */
-
-app.listen(port, () => {
-  console.log(`The Magic 🪄  is Happening on ${port}`);
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
 });
