@@ -755,6 +755,26 @@ table tr:first-child th:last-child {
   }
 }
 
+.error-container {
+  margin: 25px;
+  border-radius: 25px;
+  background-color: #564b4c;
+  color: #f4f4f4;
+  padding: 15px;
+}
+
+.error-container p {
+  border-radius: 15px;
+}
+
+.error-container pre, .error-container p {
+  background-color: #473434;
+  padding: 10px;
+  border-radius: 20px;
+  margin: 0;
+  margin-top: 10px;
+}
+
 /*! ---- Toast ---- */
 
 /* ******** */

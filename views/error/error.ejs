@@ -1,0 +1,10 @@
+<%- include("../partials/NavbarDashboard"); -%>
+<div class="error-container">
+  <h1>An Error Occurred</h1>
+  <p>Error Message: <%= message %></p>
+  <p class="err-code">Error Status: <span><%= error.status %></span></p>
+  <% if (error.stack) { %>
+    <pre><%= error.stack %></pre>
+  <% } %>
+</div>
+<%- include("../partials/footer"); -%>
