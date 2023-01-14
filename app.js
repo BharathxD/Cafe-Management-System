@@ -4,6 +4,7 @@ const flash = require("connect-flash");
 const session = require("express-session");
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
+const { errorHandler } = require("./middlewares/errorHandler");
 
 dotenv.config();
 
@@ -41,6 +42,16 @@ app.use("/customer", customerRouter);
 app.use("/chef", chefRouter);
 app.use("/item", itemRouter);
 app.use("/invoice", invoiceRouter);
+
+// catch 404 and forward to error handler
+app.use((req, res, next) => {
+  const err = new Error("Not Found");
+  err.status = 404;
+  next(err);
+});
+
+// error handler
+app.use(errorHandler);
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
